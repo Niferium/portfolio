@@ -3,39 +3,760 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Harley Davidson Tobias - Mobile & Web Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #ADEBB3 0%, #ADEBB3 100%);
+            color: white;
+            padding: 30px 20px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            background-size: 150%; 
+            background-image: url('my_picture.jpeg');
+            background-position: center;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #58855C;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            text-align: center;
+            color: #58855C;
+        }
+
+        .sidebar .tagline {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            font-weight: 300;
+            color: #0D3311;
+        }
+
+        .contact-info {
+            margin: 30px 0;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 14px;
+            transition: opacity 0.3s;
+            color: #0D3311;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-info i {
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 40px 60px;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #58855C;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #58855C;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-title {
+            font-size: 20px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 16px;
+            color: #58855C;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .experience-item ul, .seminars ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .experience-item li, .seminars li {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #58855C;
+        }
+
+        .skill-category h3 {
+            color: #58855C;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .skill-category li:before {
+            content: "▹ ";
+            color: #58855C;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .certificate-item {
+            background: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 3px solid #58855C;
+            font-size: 14px;
+            color: #555;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .certificate-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+        }
+
+        .awards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .award-badge {
+            background: linear-gradient(135deg, #58855C 0%, #ff8c42 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .seminar-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 4px solid #58855C;
+        }
+
+        .seminar-title {
+            font-size: 18px;
+            color: #58855C;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .seminar-item .date {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fff5e6 0%, #ffe8cc 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #58855C;
+            margin: 20px 0;
+        }
+
+        .highlight h3 {
+            color: #58855C;
+            margin-bottom: 10px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h1 {
+            font-size: 48px;
+            margin: 0 0 10px 0;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #666;
+            margin: 0 0 20px 0;
+        }
+
+        .profile-info p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .profile-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-right: 12px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .btn-portfolio {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-resume {
+            background-color: #555;
+            color: white;
+        }
+        .indented-first-line {
+            text-indent: 50px; /* Indents the first line by 50 pixels */
+        }
+
+        .project-card {
+            display: flex;
+            max-width: 800px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-top: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-card img {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-content h2 {
+            font-size: 24px;
+            margin: 0 0 12px 0;
+            font-weight: bold;
+        }
+
+        .project-content p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.5;
+            margin: 0 0 12px 0;
+        }
+
+        .project-client {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .project-card {
+            flex-direction: column;
+            }
+
+            .project-card img {
+            width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hi, I'm Harley Davidson R. Tobias, a passionate developer.</p>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Brief introduction about yourself.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of your project.</p>
+    <div class="sidebar">
+        <div class="profile-img"></div>
+        <h1>Harley Davidson Tobias</h1>
+        <p class="tagline">Mobile & Web Developer | AI-Assisted Development Specialist</p>
+        
+        <div class="contact-info">
+            <a href="mailto:hdavidson.tobias@gmail.com">
+                <i class="fas fa-envelope"></i>
+                hdavidson.tobias@gmail.com
+            </a>
+            <a href="tel:+639494011578">
+                <i class="fas fa-phone"></i>
+                +639 494 011 578
+            </a>
+            <a href="#">
+                <i class="fas fa-map-marker-alt"></i>
+                Antipolo City, Philippines
+            </a>
         </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of another project.</p>
-        </div>
-    </section>
+    </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: yourname@example.com</p>
-    </section>
+    <div class="main-content">
+        <section class="section">
+            <!-- <h2 class="section-title">Professional Summary</h2>
+            <p class="intro">
+                Results-driven Software Developer with 10 years of experience specializing in Android, Huawei, and iOS applications, as well as Unit/UI Testing, Postman API Testing, web development, inventory management, and POS technical support. Proficient in front-end and back-end development, API integration, and AI-assisted coding. Known for strong problem-solving skills, attention to detail, and a collaborative team spirit. Passionate about building scalable, high-performance applications and leveraging tools to optimize workflows.
+            </p> -->
+            <div class="profile-info">
+                <h1>Hi I'm Harley</h1>
+                <p class="indented-first-line">I’m a Software Developer with 10 years of experience turning ideas into scalable, high-performance applications for Android, Huawei, and iOS. Over the years, I’ve worked across the stack—building apps, integrating APIs, testing with Unit/UI frameworks, and even supporting POS and inventory management systems.
+                    <br><br>I’m passionate about using AI-assisted coding and modern tools to make development faster and smarter. My strengths lie in problem-solving, staying detail-oriented, and thriving in team collaboration.
+                    <br><br>Curious how I can help your project succeed? Check out my portfolio and online resume to see what I’ve built.
+                </p>
+            
+                <div class="buttons">
+                  <!-- <a href="#" class="btn btn-portfolio">➤ View Portfolio</a> -->
+                  <a href="#" class="btn btn-resume">📄 View Resume</a>
+                </div>
+              </div>
+            
+              <!-- <div class="profile-img">
+                <img src="profile.jpg" alt="Profile Photo">
+              </div> -->
+        </section>
 
-    <footer>
-        <p>© 2025 Your Name</p>
-    </footer>
+        <section class="section">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="project-card">
+                <img src="top_1.jpeg" alt="TOP.ph">
+                <div class="project-content">
+                  <h2>TOP.ph</h2>
+                  <p>
+                    A virtual bridge for financial assets, enabling users to transact, manage, and transfer money electronically.
+                  </p>
+                  <p class="project-client">Client: TOP.ph</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="clementine.png" alt="Clementine">
+                <div class="project-content">
+                  <h2>Clementine AI</h2>
+                  <p>
+                    Clementine is a locally-deployed AI assistant designed to provide secure, private, and memory-enhanced support for both personal and enterprise use. Built as the successor to the prototype Erin, Clementine adopts a modular, Android-inspired architecture (e.g., ViewModel, Repository, DI) to keep components organized, testable, and maintainable.
+                    <br>It runs on top of DeepSeek R1 integrated via Ollama, with vector-based memory (RAG) for context-aware responses. Clementine is planned to feature a FastAPI backend, a lightweight Gradio web UI, and optional Android and mobile-friendly front-ends.
+                    <br>The project emphasizes local operation, data privacy, and extensibility, making it suitable for professional workflows—such as development assistance, secure knowledge retrieval, and task automation—without relying on external cloud LLM services.
+                  </p>
+                  <p class="project-client">Client: PouchyPixels</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="mytiangge_4.jpeg" alt="MyTianggePH">
+                <div class="project-content">
+                  <h2>MyTianggePH</h2>
+                  <p>
+                    We are a social enterprise marketplace designed to help Local Filipino Products and Services to be delivered.
+                  </p>
+                  <p class="project-client">Client: MyTianggePH</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="servicio_2.jpeg" alt="Servicio International ">
+                <div class="project-content">
+                  <h2>Servicio International</h2>
+                  <p>
+                    Servicio LLC is an electronic service platform which provides facilities for hospitality, different maintenance services with our well trained staff.
+                  </p>
+                  <p class="project-client">Client: Servicio International </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="popsicle_mag.jpg" alt="PopsicleMag">
+                <div class="project-content">
+                  <h2>PopsicleMag</h2>
+                  <p>
+                    PopsicleMag is a creative online platform and publication that highlights fresh voices, contemporary culture, and emerging trends in art, fashion, and lifestyle. It celebrates bold storytelling and unique perspectives, offering a vibrant space for discovery and inspiration.
+                  </p>
+                  <p class="project-client">Client: PopsicleMag</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="giordano_1.jpeg" alt="Giordano Philippines">
+                <div class="project-content">
+                  <h2>Giordano Philippines</h2>
+                  <p>
+                    Giordano Philippines is a leading apparel brand known for its timeless, versatile, and high-quality basics. The brand emphasizes comfort, simplicity, and effortless style, offering a wide range of casual wear that caters to diverse lifestyles. Giordano’s focus on classic designs and sustainable quality has made it a trusted name in everyday fashion.
+                  </p>
+                  <p class="project-client">Client: Giordano Philippines (Everfit Holding Company) </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="newera_1.jpeg" alt="New Era Philippines">
+                <div class="project-content">
+                  <h2>New Era Philippines</h2>
+                  <p>
+                    New Era Philippines is the official local arm of the iconic global headwear brand, renowned for its premium-quality caps and lifestyle apparel. Known for its authentic craftsmanship and strong ties to sports, streetwear, and pop culture, New Era continues to shape contemporary style while celebrating individuality and self-expression.
+                  </p>
+                  <p class="project-client">Client: New Era Philippines (Everfit Holding Company) </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="cyndie_amor.jpeg" alt="Cyndie Amor">
+                <div class="project-content">
+                  <h2>Event (Registration System)</h2>
+                  <p>
+                    Client is turning 18! Celebrate this milestone with a special video montage capturing cherished memories, heartfelt messages, and joyful moments from friends and family. Let's make her 18th birthday unforgettable with a personalized tribute that she'll treasure forever.
+                  </p>
+                  <p class="project-client">Client: Anonymous </p>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Mobile Android/Huawei Developer</h3>
+                <div class="company">The Orange Company Inc., Philippines</div>
+                <div class="date">August 2022 - Present</div>
+                <ul>
+                    <li>Developed multiple Android and Huawei mobile applications (In-House apps) with Jetpack Compose & XML (TOP.PH, TOP KEY, QR generation)</li>
+                    <li>Conducted UNIT/UI Testing using Espresso (Android Studio IDE)</li>
+                    <li>Integrated RESTful & SQL APIs for real-time and asynchronous data handling</li>
+                    <li>Implemented Huawei Mobile Services (HMS) such as Location Kit, Geocoder, and more</li>
+                    <li>Wrote & maintained unit tests with JUnit, Mockito and Espresso to ensure code reliability</li>
+                    <li>Automated UI testing and Unit Testing for robust user experience validation</li>
+                    <li>Conducted Postman testing of API request, response and authentications</li>
+                    <li>Optimized app performance by reducing memory leaks and improving response times</li>
+                    <li>Managed Play Store & AppGallery deployments, including signing, review compliance, and updates</li>
+                    <li>Enhanced CI/CD workflows in Azure DevOps for automated testing and release management</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="job-title">Software Information Technology</h3>
+                <div class="company">SERVICIO International, Doha Qatar</div>
+                <div class="date">April 2020 - September 2021</div>
+                <ul>
+                    <li>Developed/Maintained SERVICIO application Android and iOS version</li>
+                    <li>Q.A Tester for the Android version</li>
+                    <li>Website development and maintenance of SERVICIO</li>
+                    <li>Maintained AWS Cloud Server for SERVICIO</li>
+                    <li>Managed MongoDB Database</li>
+                    <li>Provided technical support for office equipment</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="job-title">Head Android Developer – Front End/Back End</h3>
+                <div class="company">MyTianggePH, Philippines</div>
+                <div class="date">June 2020 - March 2021</div>
+                <ul>
+                    <li>Developed MyTianggePH android version</li>
+                    <li>Q.A Tester for the Website development team and Android version</li>
+                    <li>API Back-End Tester using CURL and Postman for integration between android app and website</li>
+                    <li>API Back-End Developer for android</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="job-title">Lead Systems Developer / IT Assistant</h3>
+                <div class="company">Everfit Holding Company Inc., Philippines</div>
+                <div class="date">May 2017 - March 2020</div>
+                <ul>
+                    <li>Provided support for In-house POS system for Philippines, Mall Networks</li>
+                    <li>Training Instructor for POS In-house application</li>
+                    <li>Team Lead for Management Inventory System and VIP card system</li>
+                    <li>Created new databases using data CFG (Context Free Grammar)</li>
+                    <li>Generated reports and monitoring using backend SQL queries (MS SQL Server 2000 ~ 2008 R2)</li>
+                    <li>Supported stores: Giordano PH, NEW ERA Caps PH, NBA Philippines, Popsicle Magazine PH, Versus Barcade Uptown Makati</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="job-title">System Analyst Data Programmer Engineer Trainee</h3>
+                <div class="company">Asian Business Solutions Inc., Makati City PH</div>
+                <div class="date">May 2015 - April 2016</div>
+                <ul>
+                    <li>Spring MVC JavaScript/Dojo Toolkit developer</li>
+                    <li>User Interface / Web Design</li>
+                    <li>Key Accomplishment: Insurance Brokerage System</li>
+                </ul>
+            </div>
+        </section> -->
+
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Mobile Development</h3>
+                    <ul>
+                        <li>Android (Kotlin, Java)</li>
+                        <li>Jetpack Compose</li>
+                        <li>Huawei HarmonyOS</li>
+                        <li>HMS Core Integration</li>
+                        <li>iOS UI Testing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Java & Kotlin</li>
+                        <li>ArkTypeScript</li>
+                        <li>Python</li>
+                        <li>C++, C#, .Net</li>
+                        <li>Visual Basic</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML5, CSS</li>
+                        <li>MEAN Stack</li>
+                        <li>Angular, Node.js</li>
+                        <li>Express JS</li>
+                        <li>PHP, WordPress</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>API & Testing</h3>
+                    <ul>
+                        <li>Retrofit2, Alamofire</li>
+                        <li>REST API</li>
+                        <li>Postman API Testing</li>
+                        <li>JUnit, Mockito</li>
+                        <li>Espresso UI Testing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul>
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>SQLite DAO</li>
+                        <li>MS SQL Server</li>
+                        <li>Oracle Database</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Cloud</h3>
+                    <ul>
+                        <li>Amazon Web Services</li>
+                        <li>Azure DevOps</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Play Store Deployment</li>
+                        <li>Huawei AppGallery</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-robot"></i> AI-Assisted Development</h3>
+                <p>Leveraging ChatGPT, DeepSeek, and other AI tools for code generation, debugging, and documentation. Currently learning and developing AI Large Language Model with RAG, enhancing NLP and trained model sets.</p>
+            </div>
+        </section>
+
+        <!-- <section class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <h3 class="job-title">Computer System and Design Program</h3>
+                <div class="company">AMA Computer Learning Center, Antipolo City</div>
+                <div class="date">Degree Completed 2013-2015</div>
+            </div>
+
+            <div class="education-item">
+                <h3 class="job-title">Bachelor of Science Information Technology - Digital Arts</h3>
+                <div class="company">Colegio de San Juan de Letran, Manila</div>
+                <div class="date">Semester 2011-2012</div>
+            </div>
+
+            <div class="education-item">
+                <h3 class="job-title">Bachelor of Science in Industrial Engineering</h3>
+                <div class="company">Polytechnic University of the Philippines, Manila</div>
+                <div class="date">Semester 2010-2011</div>
+            </div>
+        </section> -->
+
+        <section class="section">
+            <h2 class="section-title">AWS Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item">AWS Artificial Intelligence Practitioner Learning Plan</div>
+                <div class="certificate-item">AWS Foundations: Machine Learning Basics</div>
+                <div class="certificate-item">AWS Cloud Practitioner Essentials</div>
+                <div class="certificate-item">Customizing and Evaluating LLMs Using Amazon SageMaker Jumpstart</div>
+                <div class="certificate-item">Developing Machine Learning Solutions</div>
+                <div class="certificate-item">Developing Generative Artificial Intelligence Solutions</div>
+                <div class="certificate-item">Essentials of Prompt Engineering</div>
+                <div class="certificate-item">Exploring Artificial Intelligence Use Cases and Applications</div>
+                <div class="certificate-item">Foundations of Prompt Engineering</div>
+                <div class="certificate-item">Introduction to Amazon EC2 Auto Scaling</div>
+                <div class="certificate-item">Optimizing Foundation Models</div>
+                <div class="certificate-item">Planning a Machine Learning Project</div>
+                <div class="certificate-item">Responsible Artificial Intelligence Practices</div>
+                <div class="certificate-item">Security, Compliance, and Governance for AI Solutions</div>
+            </div>
+        </section>
+        
+        <section class="section seminars">
+            <h2 class="section-title">Seminars & Training</h2>
+            
+            <div class="seminar-item">
+                <div class="seminar-title">AWS Innovate (Generative AI + DATA)</div>
+                <div class="date">March 06, 2025</div>
+                <p>Attended AWS Innovate, a virtual event focused on generative AI and data-driven solutions. Covered key topics such as building and scaling AI applications, integrating generative AI into workplaces, training large language models (LLMs), and optimizing data strategies. Explored AWS tools like Amazon Bedrock, SageMaker, and Amazon Q for AI development and deployment.</p>
+            </div>
+
+            <div class="seminar-item">
+                <div class="seminar-title">AWS Summit Singapore</div>
+                <div class="date">May 2024</div>
+                <ul>
+                    <li>AWS declared an additional $12 billion investment in Singapore by 2028</li>
+                    <li>Introduction of AWS AI Spring program to train 5,000 individuals annually in AI skills</li>
+                    <li>Discussions on leadership in the era of AI and strategies for leveraging generative AI</li>
+                </ul>
+            </div>
+
+            <div class="seminar-item">
+                <div class="seminar-title">Additional Training</div>
+                <ul>
+                    <li>Joomla Web Program - Alexander Abe Instructor</li>
+                    <li>Angular, React & Node Guide - Filip Jerga Instructor</li>
+                    <li>Data Center Application Development Basics - ACLC Antipolo City</li>
+                    <li>Speak English Like A PRO - ACLC Antipolo City</li>
+                </ul>
+            </div>
+        </section>
+
+        
+
+        <!-- <section class="section">
+            <h2 class="section-title">School Awards</h2>
+            <div class="awards">
+                <div class="award-badge"><i class="fas fa-trophy"></i> Top 5 Programmer and Dean Lister</div>
+                <div class="award-badge"><i class="fas fa-trophy"></i> Top 2 System Analysis and Design</div>
+                <div class="award-badge"><i class="fas fa-trophy"></i> Top 4 Work Ethics and Standard</div>
+            </div>
+        </section> -->
+    </div>
 </body>
 </html>
