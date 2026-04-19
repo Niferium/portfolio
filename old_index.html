@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harley Davidson Tobias - Android/Huawei Mobile Developer | AI/ML Engineer | QA Test Engineer</title>
+    <title>Harley Davidson Tobias - Mobile & Web Developer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -15,8 +15,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #e0e8f0;
-            background: #0A1628;
+            color: #333;
+            background: #f5f5f5;
         }
 
         .sidebar {
@@ -25,20 +25,19 @@
             top: 0;
             width: 280px;
             height: 100vh;
-            background: #0d1e35;
-            color: #e0e8f0;
+            background: linear-gradient(135deg, #ADEBB3 0%, #ADEBB3 100%);
+            color: white;
             padding: 30px 20px;
             overflow-y: auto;
             z-index: 1000;
-            border-right: 1px solid #1E3A5F;
         }
 
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: #0A1628;
-            background-size: 150%;
+            background: white;
+            background-size: 150%; 
             background-image: url('my_picture.jpeg');
             background-position: center;
             margin: 0 auto 20px;
@@ -46,17 +45,16 @@
             align-items: center;
             justify-content: center;
             font-size: 60px;
-            color: #85B7EB;
+            color: #58855C;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            border: 3px solid #0A1628;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .sidebar h1 {
             font-size: 24px;
             margin-bottom: 5px;
             text-align: center;
-            color: #ffffff;
+            color: #58855C;
         }
 
         .sidebar .tagline {
@@ -65,7 +63,7 @@
             opacity: 0.9;
             margin-bottom: 25px;
             font-weight: 300;
-            color: #85B7EB;
+            color: #0D3311;
         }
 
         .contact-info {
@@ -73,26 +71,23 @@
         }
 
         .contact-info a {
+            color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
             margin: 12px 0;
-            font-size: 13px;
+            font-size: 14px;
             transition: opacity 0.3s;
-            color: #e0e8f0;
-            word-break: break-all;
+            color: #0D3311;
         }
 
         .contact-info a:hover {
             opacity: 0.8;
-            color: #ffffff;
         }
 
         .contact-info i {
             width: 25px;
             margin-right: 10px;
-            color: #378ADD;
-            flex-shrink: 0;
         }
 
         .main-content {
@@ -101,19 +96,19 @@
         }
 
         .section {
-            background: #0d1e35;
+            background: white;
             padding: 40px;
             margin-bottom: 30px;
             border-radius: 8px;
-            border: 1px solid #1E3A5F;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .section-title {
             font-size: 28px;
-            color: #378ADD;
+            color: #58855C;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 3px solid #378ADD;
+            border-bottom: 3px solid #58855C;
             font-weight: 600;
             text-align: center;
         }
@@ -121,13 +116,13 @@
         .intro {
             font-size: 18px;
             line-height: 1.8;
-            color: #b0c4d8;
+            color: #555;
         }
 
         .experience-item, .education-item {
             margin-bottom: 35px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #1E3A5F;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .experience-item:last-child, .education-item:last-child {
@@ -136,21 +131,21 @@
 
         .job-title {
             font-size: 20px;
-            color: #ffffff;
+            color: #333;
             font-weight: 600;
             margin-bottom: 5px;
         }
 
         .company {
             font-size: 16px;
-            color: #1D9E75;
+            color: #58855C;
             font-weight: 500;
             margin-bottom: 5px;
         }
 
         .date {
             font-size: 14px;
-            color: #888780;
+            color: #888;
             margin-bottom: 15px;
             font-style: italic;
         }
@@ -162,7 +157,7 @@
 
         .experience-item li, .seminars li {
             margin: 8px 0;
-            color: #b0c4d8;
+            color: #555;
         }
 
         .skills-grid {
@@ -173,14 +168,14 @@
         }
 
         .skill-category {
-            background: #0A1628;
+            background: #f9f9f9;
             padding: 20px;
             border-radius: 6px;
-            border-left: 4px solid #378ADD;
+            border-left: 4px solid #58855C;
         }
 
         .skill-category h3 {
-            color: #85B7EB;
+            color: #58855C;
             margin-bottom: 12px;
             font-size: 18px;
         }
@@ -191,13 +186,13 @@
 
         .skill-category li {
             padding: 5px 0;
-            color: #b0c4d8;
+            color: #555;
             font-size: 14px;
         }
 
         .skill-category li:before {
             content: "▹ ";
-            color: #1D9E75;
+            color: #58855C;
             font-weight: bold;
             margin-right: 8px;
         }
@@ -210,18 +205,18 @@
         }
 
         .certificate-item {
-            background: #0A1628;
+            background: #f9f9f9;
             padding: 15px 20px;
             border-radius: 6px;
-            border-left: 3px solid #1D9E75;
+            border-left: 3px solid #58855C;
             font-size: 14px;
-            color: #e0e8f0;
+            color: #555;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .certificate-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.25);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
         }
 
         .awards {
@@ -232,35 +227,32 @@
         }
 
         .award-badge {
-            background: #0F6E56;
-            color: #e0e8f0;
+            background: linear-gradient(135deg, #58855C 0%, #ff8c42 100%);
+            color: white;
             padding: 12px 20px;
             border-radius: 25px;
             font-size: 14px;
             font-weight: 500;
+            box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
         }
 
         .seminar-item {
             margin-bottom: 30px;
             padding: 20px;
-            background: #0A1628;
+            background: #f9f9f9;
             border-radius: 6px;
-            border-left: 4px solid #378ADD;
+            border-left: 4px solid #58855C;
         }
 
         .seminar-title {
             font-size: 18px;
-            color: #85B7EB;
+            color: #58855C;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .seminar-item .date {
             margin-bottom: 10px;
-        }
-
-        .seminar-item p {
-            color: #b0c4d8;
         }
 
         @media (max-width: 768px) {
@@ -281,20 +273,16 @@
         }
 
         .highlight {
-            background: #0A1628;
+            background: linear-gradient(120deg, #fff5e6 0%, #ffe8cc 100%);
             padding: 25px;
             border-radius: 8px;
-            border-left: 5px solid #FAC775;
+            border-left: 5px solid #58855C;
             margin: 20px 0;
         }
 
         .highlight h3 {
-            color: #FAC775;
+            color: #58855C;
             margin-bottom: 10px;
-        }
-
-        .highlight p {
-            color: #b0c4d8;
         }
 
         .profile-info {
@@ -304,24 +292,23 @@
         .profile-info h1 {
             font-size: 48px;
             margin: 0 0 10px 0;
-            color: #ffffff;
         }
 
         .profile-info h2 {
             font-size: 24px;
             font-weight: normal;
-            color: #85B7EB;
+            color: #666;
             margin: 0 0 20px 0;
         }
 
         .profile-info p {
             font-size: 16px;
-            color: #b0c4d8;
+            color: #444;
             line-height: 1.6;
         }
 
         .profile-info a {
-            color: #e0e8f0;
+            color: white;
             text-decoration: none;
         }
 
@@ -340,27 +327,27 @@
         }
 
         .btn-portfolio {
-            background-color: #0F6E56;
-            color: #9FE1CB;
+            background-color: #4CAF50;
+            color: white;
         }
 
         .btn-resume {
-            background-color: #1F4E79;
-            color: #85B7EB;
+            background-color: #555;
+            color: white;
         }
-
         .indented-first-line {
-            text-indent: 50px;
+            text-indent: 50px; /* Indents the first line by 50 pixels */
         }
 
         .project-card {
             display: flex;
             max-width: 800px;
-            background: #0A1628;
-            border: 1px solid #1E3A5F;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 6px;
             margin-top: 16px;
             overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .project-card img {
@@ -380,28 +367,28 @@
             font-size: 24px;
             margin: 0 0 12px 0;
             font-weight: bold;
-            color: #85B7EB;
         }
 
         .project-content p {
             font-size: 16px;
-            color: #b0c4d8;
+            color: #444;
             line-height: 1.5;
             margin: 0 0 12px 0;
         }
 
         .project-client {
             font-size: 14px;
-            color: #1D9E75;
+            color: #777;
         }
 
+        /* Responsive */
         @media (max-width: 600px) {
             .project-card {
-                flex-direction: column;
+            flex-direction: column;
             }
 
             .project-card img {
-                width: 100%;
+            width: 100%;
             }
         }
     </style>
@@ -410,7 +397,7 @@
     <div class="sidebar">
         <div class="profile-img"></div>
         <h1>Harley Davidson Tobias</h1>
-        <p class="tagline">Android/Huawei Mobile Developer | AI/ML Engineer | QA Test Engineer</p>
+        <p class="tagline">Mobile & Web Developer | AI-Assisted Development Specialist</p>
         
         <div class="contact-info">
             <a href="mailto:hdavidson.tobias@gmail.com">
@@ -440,14 +427,14 @@
             </p> -->
             <div class="profile-info">
                 <h1>Hi I'm Harley</h1>
-                <p class="indented-first-line">I am a seasoned Software Developer with over 10 years of experience specializing in Android and Huawei mobile application development, AI engineering, and full-stack integration. My work spans the full development lifecycle — from architecting and building high-performance mobile applications using Kotlin, Jetpack Compose, and Huawei HMS, to designing and deploying AI-powered systems leveraging Large Language Models, Retrieval-Augmented Generation (RAG), and AWS cloud services.
-I bring a disciplined, detail-oriented approach to every project, with a strong foundation in QA testing, CI/CD pipelines, and API integration. I am committed to building technology that is not only functional but scalable, maintainable, and future-ready.
-If you are looking for a developer who bridges the gap between mobile engineering and modern AI development — let's connect.
+                <p class="indented-first-line">I’m a Software Developer with 10 years of experience turning ideas into scalable, high-performance applications for Android, Huawei, and iOS. Over the years, I’ve worked across the stack—building apps, integrating APIs, testing with Unit/UI frameworks, and even supporting POS and inventory management systems.
+                    <br><br>I’m passionate about using AI-assisted coding and modern tools to make development faster and smarter. My strengths lie in problem-solving, staying detail-oriented, and thriving in team collaboration.
+                    <br><br>Curious how I can help your project succeed? Check out my portfolio and online resume to see what I’ve built.
                 </p>
             
                 <div class="buttons">
                   <!-- <a href="#" class="btn btn-portfolio">➤ View Portfolio</a> -->
-                  <!-- <a href="cv.pdf" class="btn btn-resume">📄 cv</a> -->
+                  <a href="cv.pdf" class="btn btn-resume">📄 View Resume</a>
                 </div>
               </div>
             
@@ -457,7 +444,7 @@ If you are looking for a developer who bridges the gap between mobile engineerin
         </section>
 
         <section class="section">
-            <h2 class="section-title">PORTFOLIO</h2>
+            <h2 class="section-title">Portfolio</h2>
             <div class="project-card">
                 <img src="top_1.jpeg" alt="TOP.ph">
                 <div class="project-content">
