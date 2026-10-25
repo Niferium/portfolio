@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Harley Davidson Tobias · Android/Huawei Developer, AI/ML Engineer, QA Test Engineer</title>
+<meta name="description" content="Portfolio of Harley Davidson Tobias: 10+ years in Android and Huawei mobile development, AI/RAG engineering and QA testing.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{--bg:#060d1a;--bg2:#0d1e35;--ink:#e0e8f0;--mute:#8fa6bd;--line:rgba(55,138,221,.3);--b:#378ADD;--g:#1D9E75;--t:#5ee0b8;--y:#FAC775;--d:'Sora','Segoe UI',sans-serif;--m:'JetBrains Mono',Consolas,monospace;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--d);overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--y);outline-offset:3px}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+.w{width:min(1120px,100% - 2rem);margin-inline:auto}
+.cut{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.rot{transform-box:fill-box;transform-origin:center;animation:spin var(--d2,12s) linear infinite}.rev{animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* boot */
+#boot{position:fixed;inset:0;z-index:100;background:#03070f;display:grid;place-items:center;padding:1.5rem;clip-path:circle(150% at 50% 50%);transition:clip-path .9s cubic-bezier(.7,0,.2,1)}
+#boot.go{clip-path:circle(0 at 50% 50%);pointer-events:none}
+#boot .bx{width:min(560px,100%);font:.9rem/1.8 var(--m);color:var(--t)}
+#boot h2{font:800 clamp(1.8rem,6vw,2.8rem) var(--d);color:#fff;margin-bottom:1rem}
+#log{min-height:11rem;color:var(--mute)}
+#start{margin-top:1.2rem;background:none;border:1px solid var(--t);color:var(--t);padding:.8rem 2rem;font:700 .95rem var(--m);opacity:0;pointer-events:none;transition:opacity .4s}
+#start.rdy{opacity:1;pointer-events:auto;animation:pl 1.4s infinite}#start:hover{background:var(--t);color:#04121a}
+@keyframes pl{50%{box-shadow:0 0 0 8px rgba(94,224,184,.14)}}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;padding:calc(env(safe-area-inset-top,0px) + .6rem) 0 .6rem;background:rgba(6,13,26,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{font:800 1.1rem var(--d);cursor:pointer;user-select:none;background:none;border:0}.logo b{color:var(--t)}
+nav{display:flex;gap:1.1rem;align-items:center;font-size:.9rem}nav a{color:var(--mute);text-decoration:none}nav a:hover{color:var(--t)}
+.bt{background:none;border:1px solid var(--line);color:var(--t);font:700 .8rem var(--m);padding:.3rem .65rem}.bt:hover{border-color:var(--y);color:var(--y)}
+.xp{position:absolute;left:0;right:0;bottom:-1px;height:2px}.xp i{display:block;height:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--b),var(--t),var(--y));box-shadow:0 0 10px var(--t)}
+.lv{font:700 .75rem var(--m);color:var(--y)}
+@media(max-width:720px){nav a{display:none}}
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:center;padding:7rem 0 4rem}
+.hero .w{display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:center}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}}
+h1{font:800 clamp(3rem,10vw,7.4rem)/.95 var(--d);letter-spacing:-.03em;background:linear-gradient(90deg,#fff,var(--t),var(--y),#fff);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sl 9s linear infinite}
+@keyframes sl{to{background-position:300% 0}}
+.role{font:700 clamp(1rem,2.6vw,1.45rem) var(--m);color:var(--t);margin:1.2rem 0;min-height:2rem}
+.cr{display:inline-block;width:.6em;height:1.1em;background:var(--t);vertical-align:-.15em;margin-left:3px;animation:bk 1s steps(2) infinite}@keyframes bk{50%{opacity:0}}
+.hero p.l{color:var(--mute);max-width:58ch}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.8rem 0 .8rem}
+.btn{display:inline-block;border:0;background:linear-gradient(90deg,var(--b),var(--t));color:#04121a;padding:.85rem 1.7rem;font:700 .9rem var(--m);text-decoration:none;transition:transform .25s,filter .25s}
+.btn:hover{transform:translateY(-3px);filter:drop-shadow(0 0 12px rgba(94,224,184,.7))}
+.btn.gh{background:none;border:1px solid var(--line);color:var(--ink)}.btn.gh:hover{border-color:var(--y);color:var(--y)}
+.tip{font:.8rem var(--m);color:var(--mute)}.tip kbd{border:1px solid var(--line);padding:0 .4rem;color:var(--y)}
+.av{position:relative;width:min(320px,70vw);aspect-ratio:1;justify-self:center;border:0;background:none;padding:0;animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.av svg{position:absolute;inset:-8%;width:116%;height:116%;overflow:visible;filter:drop-shadow(0 0 26px rgba(94,224,184,.4))}
+.av .ini,.av img{position:absolute;inset:12%;width:76%;height:76%;border-radius:50%;object-fit:cover}
+.av .ini{display:grid;place-items:center;font:800 3.4rem var(--d);background:radial-gradient(circle,#12305a,#0a1628);color:var(--t)}
+.stats{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2.2rem}.stats b{display:block;font:800 2rem/1 var(--d);color:var(--y)}.stats span{font:.78rem var(--m);color:var(--mute)}
+/* sections */
+.pad{padding:5.5rem 0}
+.sh h2{font:800 clamp(2rem,5vw,3.4rem)/1 var(--d);letter-spacing:-.02em}.sh p{color:var(--mute);margin:.7rem 0 2.2rem;font:.88rem var(--m)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;perspective:1000px}
+.card{position:relative;border:1px solid var(--line);background:rgba(13,30,53,.78);padding:0;text-align:left;overflow:hidden;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s,border-color .3s}
+.card:hover{border-color:var(--y)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 60%)}.card:hover::after{opacity:1}
+.a{position:relative;aspect-ratio:4/3;overflow:hidden}.a svg,.a img,.ma svg,.ma img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .m{padding:1rem 1.2rem 1.3rem}.card h3{font:700 1.2rem var(--d)}.card small{display:block;color:var(--mute);font:.78rem var(--m);margin-top:.3rem}
+.go{position:absolute;right:.8rem;top:.8rem;font:700 .72rem var(--m);color:var(--y);border:1px solid var(--y);padding:.1rem .55rem;background:rgba(6,13,26,.75)}
+#modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:1rem;background:rgba(3,5,10,.82);backdrop-filter:blur(8px);visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s}
+#modal.open{visibility:visible;opacity:1}
+.mbox{width:min(900px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--t);background:var(--bg2);transform:scale(.9);transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+#modal.open .mbox{transform:none}@media(max-width:700px){.mbox{grid-template-columns:1fr}}
+.ma{position:relative;min-height:260px}.mt{padding:1.8rem;display:grid;gap:.9rem;align-content:center}.mt h3{font:800 1.8rem/1.1 var(--d)}.mt small{color:var(--y);font:.8rem var(--m)}.mt p{color:var(--mute);font-size:.95rem}.ls{display:flex;gap:.6rem;flex-wrap:wrap}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.sk>div{background:rgba(13,30,53,.75);border:1px solid var(--line);border-left:3px solid var(--b);padding:1.2rem}.sk h3{font:700 .95rem var(--m);color:var(--t);margin-bottom:.5rem}
+.chip{display:inline-block;margin:.25rem .25rem 0 0;padding:.2rem .75rem;border:1px solid var(--line);border-radius:99px;font-size:.82rem;transition:background .2s,color .2s,transform .2s}.chip:hover{background:var(--t);color:#04121a;transform:translateY(-3px)}
+.ai{margin-top:1.4rem;padding:1.4rem 1.6rem;border-left:4px solid var(--y);background:rgba(13,30,53,.75)}.ai h3{color:var(--y);margin-bottom:.4rem}.ai p{color:var(--mute)}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.7rem}
+.cert{display:block;padding:.8rem 1rem;background:rgba(13,30,53,.75);border:1px solid var(--line);border-left:3px solid var(--g);text-decoration:none;font-size:.86rem;transition:transform .25s,border-color .25s,box-shadow .25s}.cert:hover{transform:translateX(6px);border-color:var(--t);box-shadow:0 0 18px rgba(94,224,184,.25)}
+.sems{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.6rem}
+.sem{padding:1.2rem;background:rgba(13,30,53,.75);border:1px solid var(--line);border-left:3px solid var(--b);color:inherit;text-decoration:none}.sem h3{font:700 1rem var(--d);color:#9fc8f2}.sem small{display:block;color:var(--y);font:.75rem var(--m);margin:.2rem 0 .5rem}.sem p{color:var(--mute);font-size:.88rem}
+/* contact */
+.contact{text-align:center;background:radial-gradient(60% 70% at 50% 100%,rgba(55,138,221,.22),transparent)}
+.contact h2{font:800 clamp(2.2rem,7vw,5rem)/1 var(--d);max-width:14ch;margin:0 auto 1rem}.contact p.s{color:var(--mute);margin-bottom:2.4rem}
+.hold{--p:0;width:170px;height:170px;border-radius:50%;border:0;padding:0;background:conic-gradient(var(--t) calc(var(--p)*1%),rgba(94,224,184,.14) 0);display:inline-grid;place-items:center;user-select:none;touch-action:none;transition:transform .2s}.hold:hover{transform:scale(1.06)}
+.hold span{width:150px;height:150px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center;padding:1rem;font:700 .85rem var(--m);color:var(--t)}
+.hold.on{animation:sh .12s infinite}@keyframes sh{25%{transform:translate(2px,1px)}75%{transform:translate(-2px,-1px)}}
+#links{display:grid;gap:.8rem;justify-items:center;margin-top:2rem;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .6s,transform .6s}
+#links.show{opacity:1;transform:none;pointer-events:auto}#links a{font:700 clamp(1rem,3vw,1.5rem) var(--d);text-decoration:none;color:var(--y);overflow-wrap:anywhere}#links a:hover{color:var(--t)}#links i{margin-right:.6rem;color:var(--b)}
+footer{padding:1.6rem 0 2.4rem;border-top:1px solid var(--line);color:var(--mute);font:.8rem var(--m);background:rgba(6,13,26,.8)}footer .w{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+/* terminal */
+#term{position:fixed;left:0;right:0;bottom:0;height:min(55vh,460px);z-index:90;background:rgba(3,7,15,.97);border-top:1px solid var(--t);font:.88rem/1.6 var(--m);transform:translateY(105%);transition:transform .45s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom,0px))}
+#term.open{transform:none}#tout{flex:1;overflow:auto;color:var(--ink)}#tout .u{color:var(--y)}#tout b{color:var(--t)}
+.pr{display:flex;gap:.5rem;color:var(--t)}#tin{flex:1;background:none;border:0;color:var(--ink);font:inherit;outline:0}
+/* toasts */
+#toasts{position:fixed;left:1rem;bottom:calc(env(safe-area-inset-bottom,0px) + 1rem);z-index:120;display:grid;gap:.6rem;pointer-events:none}
+.toast{display:flex;gap:.8rem;align-items:center;background:rgba(13,30,53,.96);border:1px solid var(--y);padding:.7rem 1.1rem;box-shadow:0 0 24px rgba(250,199,117,.25);animation:ti .5s cubic-bezier(.3,1.5,.5,1),to .4s 3.3s forwards}
+.toast i{color:var(--y);font-size:1.3rem}.toast b{display:block;font:700 .9rem var(--d);color:var(--y)}.toast small{color:var(--mute);font-size:.82rem}
+@keyframes ti{from{transform:translateX(-120%)}}@keyframes to{to{opacity:0;transform:translateY(10px)}}
+.god #fx,.god main{animation:hue 3s linear infinite}@keyframes hue{to{filter:hue-rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="lock">
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<div id="boot"><div class="bx">
+  <h2>HDT.OS</h2><div id="log" aria-live="polite"></div>
+  <button id="start">[ press to start ]</button>
+</div></div>
+
+<header>
+  <div class="w">
+    <button class="logo" id="logo" aria-label="Harley Tobias">HDT<b>.</b>os</button>
+    <nav>
+      <a href="#work">Work</a><a href="#skills">Skills</a><a href="#certs">Certificates</a><a href="#contact">Contact</a>
+      <span class="lv" id="lv">LV 1</span>
+      <button class="bt" id="tbtn" aria-label="Open terminal">&gt;_</button>
+      <button class="bt" id="snd" aria-pressed="true">Sound on</button>
+    </nav>
+  </div>
+  <div class="xp"><i id="xp"></i></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="w">
+    <div>
+      <h1>Hi, I'm Harley.</h1>
+      <div class="role">&gt; <span id="role"></span><i class="cr"></i></div>
+      <p class="l">A software developer with 10+ years in Android and Huawei mobile apps, AI engineering and full-stack integration. I build in Kotlin, Jetpack Compose and Huawei HMS, and I ship AI systems with LLMs, RAG and AWS. I test everything: QA, CI/CD and API integration are part of how I build. If you need someone who bridges mobile engineering and modern AI, let's connect.</p>
+      <div class="cta"><a class="btn cut" href="#work">See my work</a><button class="btn gh cut" id="open2">Open the terminal</button></div>
+      <p class="tip">Click anywhere. Press <kbd>`</kbd> for the terminal. There are secrets.</p>
+      <div class="stats">
+        <div><b class="n" data-to="10">0</b><span>years building</span></div>
+        <div><b class="n" data-to="9">0</b><span>projects shown</span></div>
+        <div><b class="n" data-to="14">0</b><span>AWS certificates</span></div>
+        <div><b class="n" data-to="2">0</b><span>app stores shipped to</span></div>
+      </div>
+    </div>
+    <button class="av" id="av" aria-label="Burst">
+      <svg viewBox="0 0 300 300" fill="none" stroke-width="2"><g class="rot" style="--d2:30s"><circle cx="150" cy="150" r="144" stroke="#5ee0b8" stroke-dasharray="3 14" opacity=".7"/></g><g class="rot rev" style="--d2:20s"><polygon points="150,12 270,81 270,219 150,288 30,219 30,81" stroke="#378ADD"/></g><g class="rot" style="--d2:26s"><polygon points="150,34 251,92 251,208 150,266 49,208 49,92" stroke="#FAC775" opacity=".8"/></g></svg>
+      <span class="ini">HT</span><img src="my_picture.jpeg" alt="Harley Davidson Tobias" onerror="this.remove()">
+    </button>
+  </div>
+</section>
+
+<section id="work" class="pad"><div class="w">
+  <div class="sh rv"><h2>Missions completed</h2><p>Hover to tilt. Click a project to open its briefing.</p></div>
+  <div class="cards" id="cards"></div>
+</div></section>
+
+<section id="skills" class="pad"><div class="w">
+  <div class="sh rv"><h2>Skill tree</h2><p>Hover a skill. Everything here is something I've shipped with.</p></div>
+  <div class="sk rv" id="sk"></div>
+  <div class="ai rv"><h3><i class="fas fa-robot"></i> AI-assisted development</h3><p>I use ChatGPT, DeepSeek and other AI tools for code generation, debugging and documentation. I'm currently building LLM systems with RAG, improving NLP and trained model sets. (Yes, this site was co-built with an AI too.)</p></div>
+</div></section>
+
+<section id="certs" class="pad"><div class="w">
+  <div class="sh rv"><h2>AWS certificates</h2><p>Click a badge to open the certificate PDF.</p></div>
+  <div class="certs rv" id="cl"></div>
+  <div class="sems rv" id="sems"></div>
+</div></section>
+
+<section id="contact" class="pad contact"><div class="w">
+  <h2>Ready to start a new run?</h2>
+  <p class="s">Press and hold the button to unlock my contact details.</p>
+  <button class="hold" id="hold" aria-label="Hold to unlock contact details"><span id="ht">Hold to unlock</span></button>
+  <div id="links">
+    <a href="mailto:hdavidson.tobias@gmail.com"><i class="fas fa-envelope"></i>hdavidson.tobias@gmail.com</a>
+    <a href="tel:+639494011578"><i class="fas fa-phone"></i>+639 494 011 578</a>
+    <a href="https://www.linkedin.com/in/harley-davidson-tobias-74a301382" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+    <a href="https://www.github.com/Niferium" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>github.com/Niferium</a>
+    <span class="tip"><i class="fas fa-map-marker-alt"></i> Antipolo City, Philippines</span>
+  </div>
+</div></section>
+</main>
+<footer><div class="w"><span>© 2026 Harley Davidson Tobias</span><span id="ac">Achievements 0/6</span></div></footer>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="Project briefing"><div class="mbox cut" id="mbox"></div></div>
+<div id="term" role="dialog" aria-label="Terminal"><div id="tout"></div><div class="pr">$<input id="tin" autocomplete="off" spellcheck="false" aria-label="Terminal command"></div></div>
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,AC=null,snd=true,got={},cnt=0,TOTAL=6;
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function beep(f,d,t,v){if(!AC||!snd)return;var o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime;o.type=t||'sine';o.frequency.setValueAtTime(f,n);o.frequency.exponentialRampToValueAtTime(f*1.5,n+d);g.gain.setValueAtTime(v||.04,n);g.gain.exponentialRampToValueAtTime(.0001,n+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(n+d)}
+function ach(id,t,d){if(got[id])return;got[id]=1;cnt++;$('ac').textContent='Achievements '+cnt+'/'+TOTAL;var e=document.createElement('div');e.className='toast';e.innerHTML='<i class="fas fa-trophy"></i><div><b>'+t+'</b><small>'+d+'</small></div>';$('toasts').appendChild(e);setTimeout(function(){e.remove()},3800);beep(880,.2,'square',.03);setTimeout(function(){beep(1320,.3,'square',.03)},120)}
+$('snd').onclick=function(){snd=!snd;this.textContent=snd?'Sound on':'Sound off';this.setAttribute('aria-pressed',snd);beep(600,.1)};
+
+/* data */
+var P=[
+['TOP.ph','TOP.ph','Fintech, Android, Huawei','A virtual bridge for financial assets, enabling users to transact, manage and transfer money electronically.','top_1.jpeg',[['Play Store','https://play.google.com/store/apps/details?id=ph.theorangeco.orangeapp'],['AppGallery','https://appgallery.huawei.com/app/C107756347'],['TOP.ph','https://TOP.ph']]],
+['Clementine AI','PouchyPixels','Local LLM, RAG, Ollama','A locally deployed AI assistant for secure, private, memory-enhanced support. Successor to the prototype Erin, with an Android-inspired modular architecture (ViewModel, Repository, DI). It runs DeepSeek R1 through Ollama with vector-based memory (RAG). A FastAPI backend, Gradio web UI and mobile front-ends are planned. Built for privacy, with no external cloud LLM needed.','clementine.png',[]],
+['Digital Bingo Game System','Quezon City Bahaghari Executive Clubs','React, Node.js, Real-time','A full-stack app that modernizes physical bingo events: online card registration with a countdown, a host draw panel with a live 1 to 75 board, instant moderator VALID/INVALID card verification, and a public live-draw viewer for projection.','bingo_portfolio_showcase.png',[]],
+['MyTianggePH','MyTianggePH','Android, Marketplace','A social enterprise marketplace that helps local Filipino products and services get delivered.','mytiangge_4.jpeg',[]],
+['Servicio International','Servicio International','Hospitality, Platform','An electronic service platform for hospitality and maintenance services, with well-trained staff.','servicio_2.jpeg',[]],
+['PopsicleMag','PopsicleMag','Media, Culture','A creative online platform and publication highlighting fresh voices, contemporary culture and emerging trends in art, fashion and lifestyle.','popsicle_mag.jpg',[]],
+['Giordano Philippines','Giordano Philippines (Everfit Holding Company)','Retail, POS','A leading apparel brand known for timeless, versatile, high-quality basics.','giordano_1.jpeg',[]],
+['New Era Philippines','New Era Philippines (Everfit Holding Company)','Retail, POS','The local arm of the global headwear brand, known for premium caps and lifestyle apparel.','newera_1.jpeg',[]],
+['Event Registration System','Anonymous','Web, Event','A registration system for a special 18th birthday celebration with a personalized video montage tribute.','cyndie_amor.jpeg',[]]];
+var S=[['Mobile',['Android (Kotlin, Java)','Jetpack Compose','Huawei HarmonyOS','HMS Core','iOS UI Testing']],['Languages',['Java & Kotlin','ArkTypeScript','Python','C++, C#, .Net','Visual Basic']],['Web',['HTML5, CSS','MEAN Stack','Angular, Node.js','Express JS','PHP, WordPress']],['API & Testing',['Retrofit2, Alamofire','REST API','Postman','JUnit, Mockito','Espresso']],['Databases',['MongoDB','MySQL','SQLite DAO','MS SQL Server','Oracle']],['DevOps & Cloud',['Amazon Web Services','Azure DevOps','CI/CD Pipelines','Play Store','Huawei AppGallery']]];
+var C=[['AI Practitioner Learning Plan','AWS Artificial Intelligence Practitioner Learning Plan.pdf'],['Foundations: Machine Learning Basics','AWS Foundations ML Basics.pdf'],['Cloud Practitioner Essentials','aws_cloud_practioner_certificate.pdf'],['Customizing and Evaluating LLMs with SageMaker JumpStart','customizing_evaluation_awssagemaker_jumpstart.pdf'],['Developing Machine Learning Solutions','Developing ML Solutions.pdf'],['Developing Generative AI Solutions','Developing_Generative_ai_solutions.pdf'],['Essentials of Prompt Engineering','Essentials of Prompt Engineering.pdf'],['Exploring AI Use Cases and Applications','Exploring Artificial Intelligence Use Cases and Applications.pdf'],['Foundations of Prompt Engineering','Foundations_of_prompt_engineering.pdf'],['Introduction to Amazon EC2 Auto Scaling','Introduction to Amazon ec2 auto scale .pdf'],['Optimizing Foundation Models','Optimizing Foundation Models.pdf'],['Planning a Machine Learning Project','planning a ML project.pdf'],['Responsible AI Practices','Responsible Artificial Intelligence Practices.pdf'],['Security, Compliance, and Governance for AI','Security_compliance_governance_ai.pdf']];
+var Z=[['AWS Cloud Day Philippines, AI Edition','August 19, 2025','Generative AI and data-driven solutions: building AI applications, AWS tools for AI development, and how GCash, PayMaya and others use them.','certs/ai_philippine_edition.png'],['AWS Innovate (Generative AI + Data)','March 06, 2025','Scaling AI applications, training LLMs, and AWS tools: Amazon Bedrock, SageMaker and Amazon Q.','certs/Certificate_of_attendance_AWS Innovate.png'],['AWS Summit Singapore','May 2024','A $12B AWS investment in Singapore by 2028, the AWS AI Spring program to train 5,000 people a year, and leadership in the era of generative AI.',''],['Additional training','','Joomla (Alexander Abe), Angular, React & Node (Filip Jerga), Data Center Application Development Basics and Speak English Like A PRO (ACLC Antipolo).','']];
+
+/* boot */
+var L=['> HDT.OS v2.0 initializing','> mounting android.kotlin ......... ok','> mounting huawei.hms ............. ok','> loading llm.rag.core ............ ok','> linking 14 aws certificates ..... ok','> all systems nominal'],lg=$('log'),k=0;
+(function nx(){if(k<L.length){lg.innerHTML+=L[k++]+'<br>';setTimeout(nx,reduce?0:380)}else{$('start').classList.add('rdy');$('start').focus()}})();
+$('start').onclick=function(){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}beep(300,.5,'sawtooth',.04);$('boot').classList.add('go');document.body.classList.remove('lock');ach('st','Systems online','You booted HDT.OS.');setTimeout(function(){burst(innerWidth/2,innerHeight*.4,45)},500)};
+
+/* canvas */
+var cv=$('fx'),g=cv.getContext('2d'),W,H,PT=[],B=[],R=[],m={x:.5,y:.5,px:-999,py:-999},mat=0,cols=[],i;
+function size(){var D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;g.setTransform(D,0,0,D,0,0);PT=[];for(i=0;i<Math.min(80,W*H/16000|0);i++)PT.push({x:Math.random()*W,y:Math.random()*H,vx:Math.random()*.4-.2,vy:Math.random()*.4-.2});cols=[];for(i=0;i<W/16;i++)cols.push(Math.random()*H)}
+addEventListener('resize',size);size();
+addEventListener('pointermove',function(e){m.px=e.clientX;m.py=e.clientY;m.x=e.clientX/W;m.y=e.clientY/H},{passive:true});
+function burst(x,y,n){n=n||30;for(var j=0;j<n;j++){var a=Math.random()*6.283,s=2+Math.random()*7;B.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c:['#5ee0b8','#378ADD','#FAC775'][j%3]})}R.push({x:x,y:y,r:4,l:1});beep(180,.35,'sawtooth',.05)}
+var clicks=0;
+addEventListener('pointerdown',function(e){if(e.target.closest('input,#term,#boot'))return;burst(e.clientX,e.clientY,16);if(++clicks==12)ach('ck','Click happy','12 clicks. Keep going.')});
+function draw(t){if(!reduce)requestAnimationFrame(draw);t*=.001;g.clearRect(0,0,W,H);
+  var gr=g.createLinearGradient(0,0,W,0),p,q,dx,dy,d,j;gr.addColorStop(0,'#378ADD');gr.addColorStop(.55,'#5ee0b8');gr.addColorStop(1,'#FAC775');g.strokeStyle=gr;g.lineWidth=1.2;
+  for(i=0;i<12;i++){var kk=i/11,b=H*(.2+kk*.65);g.globalAlpha=.05+.3*Math.pow(1-Math.abs(kk-m.y),2);g.beginPath();
+    for(var x=0;x<=W;x+=14){var u=x/W,y=b+Math.sin(u*5+t*.8+kk*3)*(20+kk*26)+Math.sin(u*11-t*1.1+kk*6)*8-Math.exp(-Math.pow((u-m.x)*3,2))*60*Math.sin(t+kk*4);x?g.lineTo(x,y):g.moveTo(x,y)}g.stroke()}
+  g.globalAlpha=1;g.lineWidth=1;
+  for(i=0;i<PT.length;i++){p=PT[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;dx=m.px-p.x;dy=m.py-p.y;d=Math.sqrt(dx*dx+dy*dy);
+    if(d<160){p.x+=dx*.01;p.y+=dy*.01;g.strokeStyle='rgba(250,199,117,'+(1-d/160)*.6+')';g.beginPath();g.moveTo(p.x,p.y);g.lineTo(m.px,m.py);g.stroke()}
+    for(j=i+1;j<PT.length;j++){q=PT[j];dx=p.x-q.x;dy=p.y-q.y;d=dx*dx+dy*dy;if(d<8100){g.strokeStyle='rgba(94,224,184,'+(1-d/8100)*.25+')';g.beginPath();g.moveTo(p.x,p.y);g.lineTo(q.x,q.y);g.stroke()}}
+    g.fillStyle='rgba(200,240,250,.8)';g.fillRect(p.x-1,p.y-1,2,2)}
+  for(i=B.length-1;i>=0;i--){p=B[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.95;p.vy*=.95;p.l-=.022;if(p.l<=0){B.splice(i,1);continue}g.globalAlpha=p.l;g.fillStyle=p.c;g.fillRect(p.x,p.y,3,3)}
+  for(i=R.length-1;i>=0;i--){p=R[i];p.r+=8;p.l-=.025;if(p.l<=0){R.splice(i,1);continue}g.globalAlpha=p.l;g.strokeStyle='#5ee0b8';g.lineWidth=2;g.beginPath();g.arc(p.x,p.y,p.r,0,6.283);g.stroke();g.lineWidth=1}
+  if(mat>Date.now()){g.fillStyle='#5ee0b8';g.font='14px monospace';g.globalAlpha=.8;for(i=0;i<cols.length;i++){g.fillText(String.fromCharCode(0x30A0+Math.random()*60|0),i*16,cols[i]);cols[i]=cols[i]>H&&Math.random()>.975?0:cols[i]+16}}
+  g.globalAlpha=1}
+draw(0);
+$('av').onclick=function(){var r=this.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,60);beep(240,.4,'sawtooth',.05)};
+
+/* role typing + counters */
+var roles=['Android Developer','Huawei HMS Engineer','AI / RAG Builder','QA Test Engineer'],ri=0,ci=0,dir=1;
+function ty(){var r=roles[ri],w;ci+=dir;$('role').textContent=r.slice(0,ci);w=dir>0&&ci==r.length?1500:dir<0&&ci==0?300:60;if(dir>0&&ci==r.length)dir=-1;else if(dir<0&&ci==0){dir=1;ri=(ri+1)%roles.length}setTimeout(ty,w)}
+if(reduce)$('role').textContent=roles[0];else ty();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);e.target.classList.add('in');if(e.target.classList.contains('n')){var to=+e.target.dataset.to,s=0;(function c(){s++;e.target.textContent=Math.round(to*Math.min(1,s/40))+(to==10?'+':'');if(s<40)requestAnimationFrame(c)})()}})},{threshold:.2});
+[].forEach.call(document.querySelectorAll('.rv,.n'),function(e){io.observe(e)});
+
+/* art, cards, modal */
+function poly(n,r,rot){var s=[];for(var j=0;j<n;j++){var a=rot+j*6.2832/n-1.5708;s.push((200+Math.cos(a)*r).toFixed(1)+','+(150+Math.sin(a)*r).toFixed(1))}return s.join(' ')}
+function art(n){var c=['#378ADD','#5ee0b8','#FAC775'][n%3],s='<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#0a1628"/>';for(var j=0;j<7;j++)s+='<g class="rot'+(j%2?' rev':'')+'" style="--d2:'+(12+j*4)+'s"><polygon points="'+poly(3+n%6,125-j*16,j*.2)+'" fill="none" stroke="'+c+'" stroke-opacity="'+(1-j*.1)+'" stroke-width="'+(1+j*.15)+'"/></g>';return s+'<circle cx="200" cy="150" r="8" fill="'+c+'"/></svg>'}
+function pic(i){return art(i)+'<img src="'+P[i][4]+'" alt="'+P[i][0]+'" loading="lazy" onerror="this.remove()">'}
+P.forEach(function(p,i){var c=document.createElement('button');c.className='card';c.setAttribute('aria-label','Open '+p[0]);c.innerHTML='<div class="a">'+pic(i)+'</div><span class="go">Open</span><div class="m"><h3>'+p[0]+'</h3><small>'+p[2]+'</small></div>';
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--ry',((x-.5)*12).toFixed(1)+'deg');c.style.setProperty('--rx',((.5-y)*12).toFixed(1)+'deg');c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+  c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+  c.onclick=function(){openM(i)};$('cards').appendChild(c)});
+var last;
+function openM(i){var p=P[i];last=document.activeElement;$('mbox').innerHTML='<div class="ma">'+pic(i)+'</div><div class="mt"><h3>'+p[0]+'</h3><small>Client: '+p[1]+'</small><p>'+p[3]+'</p><div class="ls">'+p[5].map(function(l){return'<a class="btn" target="_blank" rel="noopener" href="'+l[1]+'">'+l[0]+'</a>'}).join('')+'<button class="bt" id="cx">Close</button></div></div>';$('modal').classList.add('open');$('cx').focus();$('cx').onclick=closeM;beep(420,.3,'sawtooth',.04);ach('pm','Mission viewed','You opened a project briefing.')}
+function closeM(){$('modal').classList.remove('open');if(last)last.focus()}
+$('modal').addEventListener('click',function(e){if(e.target===this)closeM()});
+
+/* skills, certs, seminars */
+$('sk').innerHTML=S.map(function(s){return'<div><h3>'+s[0]+'</h3>'+s[1].map(function(x){return'<span class="chip">'+x+'</span>'}).join('')+'</div>'}).join('');
+$('cl').innerHTML=C.map(function(c){return'<a class="cert" target="_blank" rel="noopener" href="'+encodeURI('certs/'+c[1])+'"><i class="fas fa-certificate" style="color:var(--y);margin-right:.5rem"></i>'+c[0]+'</a>'}).join('');
+$('sems').innerHTML=Z.map(function(z){return'<'+(z[3]?'a target="_blank" rel="noopener" href="'+encodeURI(z[3])+'"':'div')+' class="sem"><h3>'+z[0]+'</h3>'+(z[1]?'<small>'+z[1]+'</small>':'')+'<p>'+z[2]+'</p></'+(z[3]?'a':'div')+'>'}).join('');
+
+/* terminal */
+var T=$('term'),out=$('tout'),inp=$('tin'),welcomed=0;
+function pr(s,c){var d=document.createElement('div');if(c)d.className=c;d.innerHTML=s;out.appendChild(d);out.scrollTop=out.scrollHeight}
+function tog(f){var o=f===undefined?!T.classList.contains('open'):f;T.classList.toggle('open',o);if(o){if(!welcomed){welcomed=1;pr('<b>Harley\'s AI</b> (a scripted demo bot) online. Type <b>help</b>.')}setTimeout(function(){inp.focus()},50);ach('tm','Hacker mode','You opened the terminal.');beep(500,.1,'square')}else inp.blur()}
+$('tbtn').onclick=function(){tog()};$('open2').onclick=function(){tog(true)};
+var A=[[/hire|available|contact|email|job/,'Hold the big button at the bottom of the page, or type <b>contact</b>.'],[/\bbuilt\b|\bbuild\b|\bmade\b|\bsite\b|website|how.*(work|make)/,'This site was co-built by Harley and an AI pair programmer. That is rather the point.'],[/android|kotlin|compose|mobile|\bapp/,'Android with Kotlin and Jetpack Compose, plus Huawei apps shipped to Play Store and AppGallery (TOP.ph).'],[/huawei|hms|harmony/,'Huawei HMS Core (Location Kit, Geocoder and more), HarmonyOS with ArkTS, and AppGallery deployments.'],[/\bai\b|llm|rag\b|clementine|deepseek|ollama/,'Clementine AI: a local DeepSeek R1 assistant (Ollama) with RAG memory, private by design. Plus 14 AWS AI/ML certificates.'],[/aws|cert|cloud/,'14 AWS certificates: ML, generative AI, prompt engineering, SageMaker JumpStart, responsible AI. Type <b>certs</b>.'],[/test|\bqa\b|junit|espresso|postman/,'JUnit, Mockito, Espresso UI tests and Postman API testing.'],[/year|experience|senior/,'10+ years across mobile, web, POS systems and AI.'],[/^(hi|hello|hey)\b/,'Hello, human. Ask about android, huawei, AI, AWS, testing or hiring.']];
+var CM={help:function(){pr('<b>about skills projects certs contact whoami secrets matrix clear exit</b> · <b>ask</b> &lt;question&gt;')},
+about:function(){pr('10+ years in Android, Huawei, AI engineering and QA. Based in Antipolo City, Philippines.')},
+skills:function(){S.forEach(function(s){pr('<b>'+s[0]+'</b>: '+s[1].join(', '))})},
+projects:function(){P.forEach(function(p,i){pr((i+1)+'. <b>'+p[0]+'</b> · '+p[2])})},
+certs:function(){C.forEach(function(c){pr('· '+c[0])})},
+contact:function(){pr('hdavidson.tobias@gmail.com · github.com/Niferium · LinkedIn: harley-davidson-tobias-74a301382')},
+whoami:function(){pr('<b>Harley Davidson Tobias</b><br>Android/Huawei Developer · AI/ML Engineer · QA Test Engineer')},
+secrets:function(){pr('3 secrets are hidden: a classic cheat code, something clickable in the header, and a command with <b>sudo</b> in it.')},
+matrix:function(){mat=Date.now()+7000;pr('Wake up, Harley...')},
+clear:function(){out.innerHTML=''},exit:function(){tog(false)}};
+function run(v){var l=v.toLowerCase(),a=l.split(' ')[0];if(!l)return;beep(600,.05,'square',.02);
+  if(l.indexOf('sudo hire')==0){pr('<b>[sudo]</b> access granted. Starting hiring sequence...');for(var j=0;j<6;j++)setTimeout(function(){burst(Math.random()*W,Math.random()*H*.7,40)},j*220);setTimeout(function(){pr('Offer letter ready. Send it to hdavidson.tobias@gmail.com')},1400);ach('sc','Smooth operator','You ran a sudo command.');return}
+  if(a==='ask'){var q=l.slice(4).trim();if(!q)return pr('usage: ask &lt;question&gt;');var r=A.filter(function(x){return x[0].test(q)})[0];return pr(r?r[1]:'I only know this portfolio. Try: android, huawei, AI, AWS, testing, hiring.')}
+  CM[a]?CM[a]():pr('command not found: '+esc(a)+'. Try <b>help</b>')}
+inp.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=inp.value.trim();inp.value='';pr('<span class="u">$</span> '+esc(v));run(v)}if(e.key!=='Escape')e.stopPropagation()});
+
+/* easter eggs */
+var KS=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],kp=0;
+addEventListener('keydown',function(e){
+  if(e.key==='Escape'){closeM();tog(false)}
+  if(e.key==='`'){e.preventDefault();tog()}
+  var key=e.key.length==1?e.key.toLowerCase():e.key;kp=key===KS[kp]?kp+1:(key===KS[0]?1:0);
+  if(kp==KS.length){kp=0;var on=document.documentElement.classList.toggle('god');for(var j=0;j<8;j++)setTimeout(function(){burst(Math.random()*W,Math.random()*H,50)},j*140);ach('kn','Cheat code','GOD MODE '+(on?'unlocked. Hue shift engaged.':'disabled.'))}});
+var lc=0;$('logo').onclick=function(){burst(60,30,25);if(++lc==5)ach('sc','Secret found','Harley and an AI pair-programmed this site.')};
+
+/* hold to unlock */
+var hb=$('hold'),hp=0,holding=false,done=false,raf=0,lt=0;
+function tick(t){var dt=(t-lt)||16;lt=t;hp=Math.max(0,hp+(holding?dt/1300:-dt/500)*100);hb.style.setProperty('--p',Math.min(hp,100));
+  if(holding&&hp%8<3)beep(200+hp*5,.05,'square',.015);
+  if(hp>=100&&!done){done=true;holding=false;hb.classList.remove('on');$('ht').textContent='Unlocked!';$('links').classList.add('show');var r=hb.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,90);setTimeout(function(){burst(r.left+r.width/2,r.top+r.height/2,60)},250);ach('hd','Contact unlocked','Let\'s build something.');beep(500,.6,'sawtooth',.06)}
+  raf=(hp>0||holding)?requestAnimationFrame(tick):0}
+function hs(){if(done)return;holding=true;hb.classList.add('on');$('ht').textContent='Charging...';lt=performance.now();if(!raf)raf=requestAnimationFrame(tick)}
+function he(){if(done)return;holding=false;hb.classList.remove('on');$('ht').textContent='Hold to unlock';if(!raf)raf=requestAnimationFrame(tick)}
+hb.addEventListener('pointerdown',hs);addEventListener('pointerup',he);hb.addEventListener('pointerleave',he);
+hb.addEventListener('keydown',function(e){if((e.key===' '||e.key==='Enter')&&!e.repeat){e.preventDefault();hs()}});hb.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter')he()});
+
+/* xp */
+var lvl=1;function onScroll(){var p=Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight));$('xp').style.transform='scaleX('+p+')';var l=1+Math.floor(p*4.99);if(l!==lvl){if(l>lvl)beep(660,.3,'triangle',.04);lvl=l;$('lv').textContent='LV '+l}}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>

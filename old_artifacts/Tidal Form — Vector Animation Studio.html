@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tidal Form — Motion &amp; Vector Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#071218;--bg2:#0d1e27;--ink:#e6f1f2;--mute:#8aa3aa;--line:rgba(160,220,225,.16);
+  --a:#7fe3d9;--b:#6f8cff;--c:#f2c879;
+  --display:'Syne','Trebuchet MS',sans-serif;--body:'Instrument Sans','Segoe UI',sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#eef5f6;--bg2:#dfeaed;--ink:#0a1a22;--mute:#4d6870;--line:rgba(10,40,50,.16);
+  --a:#0b8a96;--b:#3a56d4;--c:#b8761a;color-scheme:light;}}
+:root[data-theme="light"]{--bg:#eef5f6;--bg2:#dfeaed;--ink:#0a1a22;--mute:#4d6870;--line:rgba(10,40,50,.16);--a:#0b8a96;--b:#3a56d4;--c:#b8761a;color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 var(--body);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1;letter-spacing:-.02em}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+
+header{position:fixed;inset:0 0 auto;z-index:20;padding:calc(env(safe-area-inset-top,0px) + .9rem) 0 .9rem;
+  backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 62%,transparent);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;font:700 1.15rem var(--display);text-decoration:none}
+.logo svg{width:28px;height:28px}
+nav{display:flex;gap:1.6rem;font-size:.95rem}
+nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav a:hover{color:var(--ink)}
+@media(max-width:620px){nav a:not(:last-child){display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:end;padding:8rem 0 4rem;overflow:hidden}
+#waves{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;pointer-events:none}
+.hero h1{font-size:clamp(2.8rem,9vw,8rem);font-weight:800;max-width:12ch}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 span i{display:block;font-style:normal;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2) i{animation-delay:.12s}
+.hero h1 span:nth-child(3) i{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.hero p{max-width:44ch;color:var(--mute);margin:1.6rem 0 0;opacity:0;animation:fade 1s .7s forwards}
+@keyframes fade{to{opacity:1}}
+.hint{position:absolute;right:max(1.25rem,calc((100% - 1180px)/2));bottom:4rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.6rem;color:var(--mute);font-size:.85rem}
+.hint b{width:1px;height:56px;background:linear-gradient(var(--a),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:620px){.hint{display:none}}
+
+/* work */
+section{position:relative}
+.pad{padding:7rem 0}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+.sec-h h2{font-size:clamp(2rem,5vw,3.8rem);max-width:14ch}
+.sec-h p{max-width:34ch;color:var(--mute);margin:0}
+.stage{display:grid;grid-template-columns:1.25fr 1fr;gap:2.5rem;align-items:center}
+@media(max-width:820px){.stage{grid-template-columns:1fr}}
+.art{position:relative;aspect-ratio:4/3;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  background:radial-gradient(120% 90% at 20% 0%,var(--bg2),var(--bg));cursor:grab;touch-action:pan-y}
+.art:active{cursor:grabbing}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.art svg .d{fill:none;stroke-linecap:round;stroke-dasharray:var(--len,1200);stroke-dashoffset:var(--len,1200);animation:draw 1.8s cubic-bezier(.3,.7,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.info h3{font-size:clamp(1.8rem,3.4vw,2.8rem);margin-bottom:1rem}
+.info p{color:var(--mute);margin:0 0 1.4rem;max-width:40ch}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.tags span{border:1px solid var(--line);border-radius:99px;padding:.2rem .8rem;font-size:.85rem;color:var(--mute)}
+.info>*{transition:opacity .35s,transform .35s}
+.info.out>*{opacity:0;transform:translateY(10px)}
+.ctrl{display:flex;align-items:center;gap:1.2rem}
+.ctrl button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.ctrl button:hover{background:var(--bg2);border-color:var(--a)}
+.ctrl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.dots{display:flex;gap:.5rem;flex:1}
+.dots button{flex:1;height:3px;width:auto;border-radius:0;border:0;padding:0;background:var(--line);position:relative;overflow:hidden}
+.dots button::after{content:"";position:absolute;inset:0;background:var(--a);transform:scaleX(0);transform-origin:left}
+.dots button.on::after{animation:fill 6s linear forwards}
+.dots button.done::after{transform:none}
+@keyframes fill{to{transform:none}}
+
+/* process: scroll-driven */
+.proc{height:340vh;background:linear-gradient(var(--bg),var(--bg2) 50%,var(--bg))}
+.pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:2rem;padding-top:5rem}
+.pin h2{font-size:clamp(2rem,5vw,3.8rem);max-width:16ch}
+.track{position:relative;width:100%}
+.track svg{width:100%;height:auto;overflow:visible;display:block}
+.track .base{fill:none;stroke:var(--line);stroke-width:2}
+.track .prog{fill:none;stroke:url(#g);stroke-width:3;stroke-linecap:round}
+.node{fill:var(--bg);stroke:var(--line);stroke-width:2;transition:fill .3s,stroke .3s,r .3s}
+.node.on{fill:var(--a);stroke:var(--a)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.steps div{opacity:.32;transition:opacity .4s,transform .4s;border-top:1px solid var(--line);padding-top:1rem}
+.steps div.on{opacity:1;transform:translateY(-6px);border-color:var(--a)}
+.steps h3{font-size:1.3rem;margin-bottom:.5rem}
+.steps p{margin:0;color:var(--mute);font-size:.95rem}
+@media(max-width:760px){.steps{grid-template-columns:1fr 1fr}.pin{gap:1.2rem}.steps p{font-size:.85rem}}
+
+/* capabilities */
+.caps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.caps li{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:1.8rem 0;border-bottom:1px solid var(--line);position:relative;transition:padding .3s}
+.caps li::before{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--a);transition:width .5s}
+.caps li:hover::before{width:100%}
+.caps li:hover{padding-left:1rem}
+.caps h3{font-size:clamp(1.5rem,3vw,2.3rem)}
+.caps p{margin:0;color:var(--mute);max-width:42ch}
+@media(max-width:700px){.caps li{grid-template-columns:1fr;gap:.6rem}}
+
+/* contact */
+.contact{text-align:left;padding:8rem 0 4rem;overflow:hidden}
+.contact a.big{display:inline-block;font:800 clamp(2rem,8vw,6.5rem)/1 var(--display);letter-spacing:-.03em;text-decoration:none;
+  background:linear-gradient(90deg,var(--a),var(--b),var(--c),var(--a));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:slide 8s linear infinite}
+@keyframes slide{to{background-position:300% 0}}
+.contact p{color:var(--mute);margin:1.5rem 0 4rem}
+footer{border-top:1px solid var(--line);padding:1.5rem 0;color:var(--mute);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .hero h1 span i{transform:none}.hero p{opacity:1}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Tidal Form home">
+      <svg viewBox="0 0 32 32" fill="none" stroke="var(--a)" stroke-width="2.4" stroke-linecap="round"><path d="M2 12c4-6 8-6 12 0s8 6 12 0M2 21c4-6 8-6 12 0s8 6 12 0"/></svg>
+      Tidal Form
+    </a>
+    <nav>
+      <a href="#work">Work</a><a href="#process">Process</a><a href="#services">Services</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <canvas id="waves" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1 aria-label="We turn motion into identity.">
+      <span><i>We turn</i></span><span><i>motion into</i></span><span><i>identity.</i></span>
+    </h1>
+    <p>Tidal Form is a vector animation studio. We design logos, interfaces and launch films that move the way your brand thinks.</p>
+  </div>
+  <div class="hint"><b></b>Scroll</div>
+</section>
+
+<section id="work" class="pad">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>Selected work</h2>
+      <p>Drag the artwork, use the arrows, or press the left and right keys.</p>
+    </div>
+    <div class="stage">
+      <div class="art" id="art" role="img" aria-label="Animated vector artwork for the current project"></div>
+      <div>
+        <div class="info" id="info"></div>
+        <div class="ctrl">
+          <button id="prev" aria-label="Previous project"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="dots" id="dots"></div>
+          <button id="next" aria-label="Next project"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="proc">
+  <div class="pin">
+    <div class="wrap">
+      <h2>From a rough line to a living system</h2>
+    </div>
+    <div class="wrap track">
+      <svg viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="var(--a)"/><stop offset="1" stop-color="var(--b)"/></linearGradient></defs>
+        <path id="base" class="base" d="M0 60C100 0 150 0 250 60S400 120 500 60 650 0 750 60 900 120 1000 60"/>
+        <path id="prog" class="prog" d="M0 60C100 0 150 0 250 60S400 120 500 60 650 0 750 60 900 120 1000 60"/>
+        <g id="nodes"></g>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="steps" id="steps">
+        <div><h3>Listen</h3><p>We map your brand’s voice, audience and the places your motion will live.</p></div>
+        <div><h3>Sketch</h3><p>Fast vector boards and loops, tested at real sizes before anything is polished.</p></div>
+        <div><h3>Animate</h3><p>Timing, easing and rhythm are tuned frame by frame in lightweight SVG and Lottie.</p></div>
+        <div><h3>Ship</h3><p>Files, code and a motion guide your team can use without us.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="pad">
+  <div class="wrap">
+    <div class="sec-h"><h2>What we make</h2><p>Small team, senior hands, and everything built as vectors so it stays sharp at any size.</p></div>
+    <ul class="caps">
+      <li><h3>Animated identities</h3><p>Logos and brand systems that move, loop and respond across screens.</p></li>
+      <li><h3>Interface motion</h3><p>Micro-interactions, onboarding and product tours that explain without words.</p></li>
+      <li><h3>Launch films</h3><p>Thirty to ninety second vector films for product reveals and events.</p></li>
+      <li><h3>Web experiences</h3><p>Scroll-driven sites and interactive pages with performance budgets we keep.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <a class="big" href="mailto:hello@tidalform.studio">Start a project</a>
+    <p>Tell us what you’re launching. We reply within two working days.</p>
+  </div>
+  <footer><div class="wrap"><span>© 2026 Tidal Form Studio</span><span>hello@tidalform.studio</span></div></footer>
+</section>
+</main>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement, cs;
+  function readColors(){ cs = getComputedStyle(root); }
+  readColors();
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', readColors);
+  function col(n){ return cs.getPropertyValue(n).trim(); }
+
+  /* ---------- Hero waves ---------- */
+  var cv = document.getElementById('waves'), cx = cv.getContext('2d');
+  var W, H, dpr, mx = .5, my = .5, tx = .5, ty = .5, t0 = 0;
+  function size(){
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  size(); addEventListener('resize', function(){ size(); if(reduce) frame(0); });
+  addEventListener('pointermove', function(e){ tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; }, {passive:true});
+  var LINES = 22;
+  function frame(t){
+    t *= .001; mx += (tx - mx) * .05; my += (ty - my) * .05;
+    cx.clearRect(0, 0, W, H);
+    var a = col('--a'), b = col('--b'), c = col('--c');
+    for (var i = 0; i < LINES; i++){
+      var k = i / (LINES - 1);
+      var g = cx.createLinearGradient(0, 0, W, 0);
+      g.addColorStop(0, a); g.addColorStop(.55, b); g.addColorStop(1, c);
+      cx.strokeStyle = g; cx.globalAlpha = .08 + .5 * Math.pow(1 - Math.abs(k - my), 2);
+      cx.lineWidth = 1.2; cx.beginPath();
+      var base = H * (.25 + k * .6);
+      for (var x = 0; x <= W; x += 10){
+        var u = x / W;
+        var infl = Math.exp(-Math.pow((u - mx) * 3, 2));
+        var y = base
+          + Math.sin(u * 5 + t * .8 + k * 3) * (24 + k * 30)
+          + Math.sin(u * 11 - t * 1.1 + k * 6) * 10
+          - infl * 70 * (1 - k * .5) * Math.sin(t + k * 4);
+        x ? cx.lineTo(x, y) : cx.moveTo(x, y);
+      }
+      cx.stroke();
+    }
+    cx.globalAlpha = 1;
+  }
+  var running = true;
+  new IntersectionObserver(function(e){ running = e[0].isIntersecting; }).observe(cv);
+  (function loop(t){ if(running && !reduce) frame(t); requestAnimationFrame(loop); })(0);
+  if (reduce) frame(0);
+
+  /* ---------- Work carousel ---------- */
+  var P = [
+    {n:'Orbit Bank', d:'An animated wordmark and onboarding film for a challenger bank. The ring system expands as a customer’s savings grow.', t:['Identity','Product film'], k:'rings'},
+    {n:'Northwind Audio', d:'A responsive sound-wave logo and live visualiser that follows the music inside the app.', t:['Logo motion','Interface'], k:'bars'},
+    {n:'Atlas Maps', d:'Vector route animations that draw journeys across the globe for a travel launch campaign.', t:['Web','Launch film'], k:'arcs'},
+    {n:'Fern Health', d:'A calm breathing guide built from one continuous line, designed for small watch screens.', t:['Interface','Illustration'], k:'spiral'}
+  ];
+  var art = document.getElementById('art'), info = document.getElementById('info'), dots = document.getElementById('dots');
+  var cur = 0, timer = null;
+  function svgFor(k){
+    var s = '<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">', i;
+    var cols = ['var(--a)','var(--b)','var(--c)'];
+    if (k === 'rings'){
+      for (i = 0; i < 9; i++) s += '<circle class="d" cx="200" cy="150" r="'+(18+i*15)+'" stroke="'+cols[i%3]+'" stroke-width="'+(1.2+i*.12)+'" style="--len:'+(2*Math.PI*(18+i*15)).toFixed(0)+';animation-delay:'+(i*.1)+'s" transform="rotate('+(i*20)+' 200 150)" stroke-dasharray="'+(2*Math.PI*(18+i*15)*.78).toFixed(0)+' 999"/>';
+    } else if (k === 'bars'){
+      for (i = 0; i < 28; i++){ var h = 20 + Math.abs(Math.sin(i*.55)*Math.cos(i*.2))*100;
+        s += '<line class="d" x1="'+(40+i*12.5)+'" x2="'+(40+i*12.5)+'" y1="'+(150-h)+'" y2="'+(150+h)+'" stroke="'+cols[i%3]+'" stroke-width="5" style="--len:'+(h*2)+';animation-delay:'+(i*.04)+'s"/>'; }
+    } else if (k === 'arcs'){
+      for (i = 0; i < 8; i++){ var y = 40 + i*30;
+        s += '<path class="d" d="M30 '+(y+40)+' Q200 '+(y-90+i*10)+' 370 '+(y+10)+'" stroke="'+cols[i%3]+'" stroke-width="2" style="--len:520;animation-delay:'+(i*.14)+'s"/>';
+        s += '<circle cx="370" cy="'+(y+10)+'" r="3.5" fill="'+cols[i%3]+'"/>'; }
+    } else {
+      var d = 'M200 150', a, r;
+      for (i = 0; i <= 260; i++){ a = i * .16; r = 4 + i * .52; d += ' L'+(200+Math.cos(a)*r).toFixed(1)+' '+(150+Math.sin(a)*r*.82).toFixed(1); }
+      s += '<path class="d" d="'+d+'" stroke="var(--a)" stroke-width="2" style="--len:3200;animation-duration:3s"/>';
+      s += '<circle cx="200" cy="150" r="5" fill="var(--c)"/>';
+    }
+    return s + '</svg>';
+  }
+  function show(n, first){
+    cur = (n + P.length) % P.length;
+    var p = P[cur];
+    function apply(){
+      art.innerHTML = svgFor(p.k);
+      info.innerHTML = '<h3>'+p.n+'</h3><p>'+p.d+'</p><div class="tags">'+p.t.map(function(x){return '<span>'+x+'</span>';}).join('')+'</div>';
+      info.classList.remove('out');
+    }
+    if (first || reduce) apply(); else { info.classList.add('out'); setTimeout(apply, 280); }
+    [].forEach.call(dots.children, function(b, i){
+      b.className = i < cur ? 'done' : '';
+      if (i === cur){ void b.offsetWidth; b.className = reduce ? 'done' : 'on'; }
+    });
+    clearTimeout(timer);
+    if (!reduce) timer = setTimeout(function(){ show(cur + 1); }, 6000);
+  }
+  P.forEach(function(p, i){
+    var b = document.createElement('button'); b.setAttribute('aria-label', 'Show ' + p.n);
+    b.onclick = function(){ show(i); }; dots.appendChild(b);
+  });
+  document.getElementById('prev').onclick = function(){ show(cur - 1); };
+  document.getElementById('next').onclick = function(){ show(cur + 1); };
+  addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+  var sx = null;
+  art.addEventListener('pointerdown', function(e){ sx = e.clientX; });
+  addEventListener('pointerup', function(e){
+    if (sx !== null && Math.abs(e.clientX - sx) > 40) show(cur + (e.clientX < sx ? 1 : -1));
+    sx = null;
+  });
+  show(0, true);
+
+  /* ---------- Scroll-driven process line ---------- */
+  var proc = document.getElementById('process'), prog = document.getElementById('prog'),
+      base = document.getElementById('base'), nodesG = document.getElementById('nodes'),
+      steps = document.querySelectorAll('#steps div'), len = prog.getTotalLength(), nodes = [];
+  prog.style.strokeDasharray = len;
+  for (var i = 0; i < 4; i++){
+    var pt = base.getPointAtLength(len * (i / 3) * .999);
+    var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('cx', pt.x); c.setAttribute('cy', pt.y); c.setAttribute('r', 9); c.setAttribute('class', 'node');
+    nodesG.appendChild(c); nodes.push(c);
+  }
+  function onScroll(){
+    var r = proc.getBoundingClientRect(), total = proc.offsetHeight - innerHeight;
+    var p = Math.min(1, Math.max(0, -r.top / total));
+    prog.style.strokeDashoffset = len * (1 - p);
+    var idx = Math.min(3, Math.floor(p * 3.999 + .02));
+    if (p <= 0.001) idx = -1;
+    nodes.forEach(function(n, i){ n.classList.toggle('on', i <= idx); });
+    steps.forEach(function(s, i){ s.classList.toggle('on', i === idx); });
+  }
+  addEventListener('scroll', onScroll, {passive:true}); addEventListener('resize', onScroll); onScroll();
+})();
+</script>
+</body>
+</html>

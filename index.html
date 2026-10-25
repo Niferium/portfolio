@@ -1,808 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harley Davidson Tobias - Android/Huawei Mobile Developer | AI/ML Engineer | QA Test Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #e0e8f0;
-            background: #0A1628;
-        }
-
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: #0d1e35;
-            color: #e0e8f0;
-            padding: 30px 20px;
-            overflow-y: auto;
-            z-index: 1000;
-            border-right: 1px solid #1E3A5F;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: #0A1628;
-            background-size: 150%;
-            background-image: url('my_picture.jpeg');
-            background-position: center;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            color: #85B7EB;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            border: 3px solid #0A1628;
-        }
-
-        .sidebar h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .sidebar .tagline {
-            text-align: center;
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 25px;
-            font-weight: 300;
-            color: #85B7EB;
-        }
-
-        .contact-info {
-            margin: 30px 0;
-        }
-
-        .contact-info a {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            margin: 12px 0;
-            font-size: 13px;
-            transition: opacity 0.3s;
-            color: #e0e8f0;
-            word-break: break-all;
-        }
-
-        .contact-info a:hover {
-            opacity: 0.8;
-            color: #ffffff;
-        }
-
-        .contact-info i {
-            width: 25px;
-            margin-right: 10px;
-            color: #378ADD;
-            flex-shrink: 0;
-        }
-
-        .main-content {
-            margin-left: 280px;
-            padding: 40px 60px;
-        }
-
-        .section {
-            background: #0d1e35;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            border: 1px solid #1E3A5F;
-        }
-
-        .section-title {
-            font-size: 28px;
-            color: #378ADD;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #378ADD;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .intro {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #b0c4d8;
-        }
-
-        .experience-item, .education-item {
-            margin-bottom: 35px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #1E3A5F;
-        }
-
-        .experience-item:last-child, .education-item:last-child {
-            border-bottom: none;
-        }
-
-        .job-title {
-            font-size: 20px;
-            color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .company {
-            font-size: 16px;
-            color: #1D9E75;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .date {
-            font-size: 14px;
-            color: #888780;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .experience-item ul, .seminars ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .experience-item li, .seminars li {
-            margin: 8px 0;
-            color: #b0c4d8;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .skill-category {
-            background: #0A1628;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #378ADD;
-        }
-
-        .skill-category h3 {
-            color: #85B7EB;
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 5px 0;
-            color: #b0c4d8;
-            font-size: 14px;
-        }
-
-        .skill-category li:before {
-            content: "▹ ";
-            color: #1D9E75;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .certificate-item {
-            background: #0A1628;
-            padding: 15px 20px;
-            border-radius: 6px;
-            border-left: 3px solid #1D9E75;
-            font-size: 14px;
-            color: #e0e8f0;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .certificate-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.25);
-        }
-
-        .awards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .award-badge {
-            background: #0F6E56;
-            color: #e0e8f0;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .seminar-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #0A1628;
-            border-radius: 6px;
-            border-left: 4px solid #378ADD;
-        }
-
-        .seminar-title {
-            font-size: 18px;
-            color: #85B7EB;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .seminar-item .date {
-            margin-bottom: 10px;
-        }
-
-        .seminar-item p {
-            color: #b0c4d8;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .highlight {
-            background: #0A1628;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 5px solid #FAC775;
-            margin: 20px 0;
-        }
-
-        .highlight h3 {
-            color: #FAC775;
-            margin-bottom: 10px;
-        }
-
-        .highlight p {
-            color: #b0c4d8;
-        }
-
-        .profile-info {
-            flex: 1;
-        }
-
-        .profile-info h1 {
-            font-size: 48px;
-            margin: 0 0 10px 0;
-            color: #ffffff;
-        }
-
-        .profile-info h2 {
-            font-size: 24px;
-            font-weight: normal;
-            color: #85B7EB;
-            margin: 0 0 20px 0;
-        }
-
-        .profile-info p {
-            font-size: 16px;
-            color: #b0c4d8;
-            line-height: 1.6;
-        }
-
-        .profile-info a {
-            color: #e0e8f0;
-            text-decoration: none;
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin-right: 12px;
-            font-weight: bold;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .btn-portfolio {
-            background-color: #0F6E56;
-            color: #9FE1CB;
-        }
-
-        .btn-resume {
-            background-color: #1F4E79;
-            color: #85B7EB;
-        }
-
-        .indented-first-line {
-            text-indent: 50px;
-        }
-
-        .project-card {
-            display: flex;
-            max-width: 800px;
-            background: #0A1628;
-            border: 1px solid #1E3A5F;
-            border-radius: 6px;
-            margin-top: 16px;
-            overflow: hidden;
-        }
-
-        .project-card img {
-            width: 300px;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .project-content h2 {
-            font-size: 24px;
-            margin: 0 0 12px 0;
-            font-weight: bold;
-            color: #85B7EB;
-        }
-
-        .project-content p {
-            font-size: 16px;
-            color: #b0c4d8;
-            line-height: 1.5;
-            margin: 0 0 12px 0;
-        }
-
-        .project-client {
-            font-size: 14px;
-            color: #1D9E75;
-        }
-
-        @media (max-width: 600px) {
-            .project-card {
-                flex-direction: column;
-            }
-
-            .project-card img {
-                width: 100%;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Harley Davidson Tobias · AI Engineer &amp; Software Engineer</title>
+<meta name="description" content="Harley Davidson Tobias: AI Engineer and Software Engineer. LLM applications, RAG, workflow orchestration, Amazon Bedrock, Docker, Android and Huawei engineering.">
+<meta property="og:title" content="Harley Davidson Tobias · AI Engineer &amp; Software Engineer">
+<meta name="description" content="Portfolio of Harley Davidson Tobias: 10+ years in Android and Huawei mobile development, AI/RAG engineering and QA testing.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{--bg:#060d1a;--bg2:#0d1e35;--ink:#e0e8f0;--mute:#8fa6bd;--line:rgba(55,138,221,.3);--b:#378ADD;--g:#1D9E75;--t:#5ee0b8;--y:#FAC775;--d:'Sora','Segoe UI',sans-serif;--m:'JetBrains Mono',Consolas,monospace;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--d);overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--y);outline-offset:3px}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+.w{width:min(1120px,100% - 2rem);margin-inline:auto}
+.cut{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.rot{transform-box:fill-box;transform-origin:center;animation:spin var(--d2,12s) linear infinite}.rev{animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* boot */
+#boot{position:fixed;inset:0;z-index:100;background:#03070f;display:grid;place-items:center;padding:1.5rem;clip-path:circle(150% at 50% 50%);transition:clip-path .9s cubic-bezier(.7,0,.2,1)}
+#boot.go{clip-path:circle(0 at 50% 50%);pointer-events:none}
+#boot .bx{width:min(560px,100%);font:.9rem/1.8 var(--m);color:var(--t)}
+#boot h2{font:800 clamp(1.8rem,6vw,2.8rem) var(--d);color:#fff;margin-bottom:1rem}
+#log{min-height:11rem;color:var(--mute)}
+#start{margin-top:1.2rem;background:none;border:1px solid var(--t);color:var(--t);padding:.8rem 2rem;font:700 .95rem var(--m);opacity:0;pointer-events:none;transition:opacity .4s}
+#start.rdy{opacity:1;pointer-events:auto;animation:pl 1.4s infinite}#start:hover{background:var(--t);color:#04121a}
+@keyframes pl{50%{box-shadow:0 0 0 8px rgba(94,224,184,.14)}}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;padding:calc(env(safe-area-inset-top,0px) + .6rem) 0 .6rem;background:rgba(6,13,26,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{font:800 1.1rem var(--d);cursor:pointer;user-select:none;background:none;border:0}.logo b{color:var(--t)}
+nav{display:flex;gap:1.1rem;align-items:center;font-size:.9rem}nav a{color:var(--mute);text-decoration:none}nav a:hover{color:var(--t)}
+.bt{background:none;border:1px solid var(--line);color:var(--t);font:700 .8rem var(--m);padding:.3rem .65rem}.bt:hover{border-color:var(--y);color:var(--y)}
+.xp{position:absolute;left:0;right:0;bottom:-1px;height:2px}.xp i{display:block;height:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--b),var(--t),var(--y));box-shadow:0 0 10px var(--t)}
+.lv{font:700 .75rem var(--m);color:var(--y)}
+@media(max-width:720px){nav a:not(.cn){display:none}}
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:center;padding:7rem 0 4rem}
+.hero .w{display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:center}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}}
+h1{font:800 clamp(3rem,10vw,7.4rem)/.95 var(--d);letter-spacing:-.03em;background:linear-gradient(90deg,#fff,var(--t),var(--y),#fff);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sl 9s linear infinite}
+@keyframes sl{to{background-position:300% 0}}
+.role{font:700 clamp(1rem,2.6vw,1.45rem) var(--m);color:var(--t);margin:1.2rem 0;min-height:2rem}
+.cr{display:inline-block;width:.6em;height:1.1em;background:var(--t);vertical-align:-.15em;margin-left:3px;animation:bk 1s steps(2) infinite}@keyframes bk{50%{opacity:0}}
+.hero p.l{color:var(--mute);max-width:58ch}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.8rem 0 .8rem}
+.btn{display:inline-block;border:0;background:linear-gradient(90deg,var(--b),var(--t));color:#04121a;padding:.85rem 1.7rem;font:700 .9rem var(--m);text-decoration:none;transition:transform .25s,filter .25s}
+.btn:hover{transform:translateY(-3px);filter:drop-shadow(0 0 12px rgba(94,224,184,.7))}
+.btn.gh{background:none;border:1px solid var(--line);color:var(--ink)}.btn.gh:hover{border-color:var(--y);color:var(--y)}
+.tip{font:.8rem var(--m);color:var(--mute)}.tip kbd{border:1px solid var(--line);padding:0 .4rem;color:var(--y)}
+.av{position:relative;width:min(320px,70vw);aspect-ratio:1;justify-self:center;border:0;background:none;padding:0;animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.av svg{position:absolute;inset:-8%;width:116%;height:116%;overflow:visible;filter:drop-shadow(0 0 26px rgba(94,224,184,.4))}
+.av .ini,.av img{position:absolute;inset:12%;width:76%;height:76%;border-radius:50%;object-fit:cover}
+.av .ini{display:grid;place-items:center;font:800 3.4rem var(--d);background:radial-gradient(circle,#12305a,#0a1628);color:var(--t)}
+.stats{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2.2rem}.stats b{display:block;font:800 2rem/1 var(--d);color:var(--y)}.stats span{font:.78rem var(--m);color:var(--mute)}
+/* sections */
+.pad{padding:5.5rem 0}
+.sh h2{font:800 clamp(2rem,5vw,3.4rem)/1 var(--d);letter-spacing:-.02em}.sh p{color:var(--mute);margin:.7rem 0 2.2rem;font:.88rem var(--m)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;perspective:1000px}
+.card{position:relative;border:1px solid var(--line);background:rgba(13,30,53,.78);padding:0;text-align:left;overflow:hidden;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s,border-color .3s}
+.card:hover{border-color:var(--y)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 60%)}.card:hover::after{opacity:1}
+.a{position:relative;aspect-ratio:4/3;overflow:hidden}.a svg,.a img,.ma svg,.ma img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .m{padding:1rem 1.2rem 1.3rem}.card h3{font:700 1.2rem var(--d)}.card small{display:block;color:var(--mute);font:.78rem var(--m);margin-top:.3rem}
+.go{position:absolute;right:.8rem;top:.8rem;font:700 .72rem var(--m);color:var(--y);border:1px solid var(--y);padding:.1rem .55rem;background:rgba(6,13,26,.75)}
+#modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:1rem;background:rgba(3,5,10,.82);backdrop-filter:blur(8px);visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s}
+#modal.open{visibility:visible;opacity:1}
+.mbox{width:min(900px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--t);background:var(--bg2);transform:scale(.9);transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+#modal.open .mbox{transform:none}@media(max-width:700px){.mbox{grid-template-columns:1fr}}
+.ma{position:relative;min-height:260px}.mt{padding:1.8rem;display:grid;gap:.9rem;align-content:center}.mt h3{font:800 1.8rem/1.1 var(--d)}.mt small{color:var(--y);font:.8rem var(--m)}.mt p{color:var(--mute);font-size:.95rem}.ls{display:flex;gap:.6rem;flex-wrap:wrap}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.sk>div{background:rgba(13,30,53,.75);border:1px solid var(--line);border-left:3px solid var(--b);padding:1.2rem}.sk h3{font:700 .95rem var(--m);color:var(--t);margin-bottom:.5rem}
+.chip{display:inline-block;margin:.25rem .25rem 0 0;padding:.2rem .75rem;border:1px solid var(--line);border-radius:99px;font-size:.82rem;transition:background .2s,color .2s,transform .2s}.chip:hover{background:var(--t);color:#04121a;transform:translateY(-3px)}
+.ai{margin-top:1.4rem;padding:1.4rem 1.6rem;border-left:4px solid var(--y);background:rgba(13,30,53,.75)}.ai h3{color:var(--y);margin-bottom:.4rem}.ai p{color:var(--mute)}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.7rem}
+.cert{display:block;padding:.8rem 1rem;background:rgba(13,30,53,.75);border:1px solid var(--line);border-left:3px solid var(--g);text-decoration:none;font-size:.86rem;transition:transform .25s,border-color .25s,box-shadow .25s}.cert:hover{transform:translateX(6px);border-color:var(--t);box-shadow:0 0 18px rgba(94,224,184,.25)}
+.sems{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.6rem}
+.sem{padding:1.2rem;background:rgba(13,30,53,.75);border:1px solid var(--line);border-left:3px solid var(--b);color:inherit;text-decoration:none}.sem h3{font:700 1rem var(--d);color:#9fc8f2}.sem small{display:block;color:var(--y);font:.75rem var(--m);margin:.2rem 0 .5rem}.sem p{color:var(--mute);font-size:.88rem}
+/* contact */
+.contact{text-align:center;background:radial-gradient(60% 70% at 50% 100%,rgba(55,138,221,.22),transparent)}
+.contact h2{font:800 clamp(2.2rem,7vw,5rem)/1 var(--d);max-width:14ch;margin:0 auto 1rem}.contact p.s{color:var(--mute);margin-bottom:2.4rem}
+.hold{--p:0;width:170px;height:170px;border-radius:50%;border:0;padding:0;background:conic-gradient(var(--t) calc(var(--p)*1%),rgba(94,224,184,.14) 0);display:inline-grid;place-items:center;user-select:none;touch-action:none;transition:transform .2s}.hold:hover{transform:scale(1.06)}
+.hold span{width:150px;height:150px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center;padding:1rem;font:700 .85rem var(--m);color:var(--t)}
+.hold.on{animation:sh .12s infinite}@keyframes sh{25%{transform:translate(2px,1px)}75%{transform:translate(-2px,-1px)}}
+#links{display:grid;gap:.8rem;justify-items:center;margin-top:2rem;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .6s,transform .6s}
+#links.show{opacity:1;transform:none;pointer-events:auto}#links a{font:700 clamp(1rem,3vw,1.5rem) var(--d);text-decoration:none;color:var(--y);overflow-wrap:anywhere}#links a:hover{color:var(--t)}#links i{margin-right:.6rem;color:var(--b)}
+footer{padding:1.6rem 0 2.4rem;border-top:1px solid var(--line);color:var(--mute);font:.8rem var(--m);background:rgba(6,13,26,.8)}footer .w{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+/* terminal */
+#term{position:fixed;left:0;right:0;bottom:0;height:min(55vh,460px);z-index:90;background:rgba(3,7,15,.97);border-top:1px solid var(--t);font:.88rem/1.6 var(--m);transform:translateY(105%);transition:transform .45s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom,0px))}
+#term.open{transform:none}#tout{flex:1;overflow:auto;color:var(--ink)}#tout .u{color:var(--y)}#tout b{color:var(--t)}
+.pr{display:flex;gap:.5rem;color:var(--t)}#tin{flex:1;background:none;border:0;color:var(--ink);font:inherit;outline:0}
+/* toasts */
+#toasts{position:fixed;left:1rem;bottom:calc(env(safe-area-inset-bottom,0px) + 1rem);z-index:120;display:grid;gap:.6rem;pointer-events:none}
+.toast{display:flex;gap:.8rem;align-items:center;background:rgba(13,30,53,.96);border:1px solid var(--y);padding:.7rem 1.1rem;box-shadow:0 0 24px rgba(250,199,117,.25);animation:ti .5s cubic-bezier(.3,1.5,.5,1),to .4s 3.3s forwards}
+.toast i{color:var(--y);font-size:1.3rem}.toast b{display:block;font:700 .9rem var(--d);color:var(--y)}.toast small{color:var(--mute);font-size:.82rem}
+@keyframes ti{from{transform:translateX(-120%)}}@keyframes to{to{opacity:0;transform:translateY(10px)}}
+.god #fx,.god main{animation:hue 3s linear infinite}@keyframes hue{to{filter:hue-rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+h1{font-size:clamp(2.1rem,5.4vw,4.3rem);line-height:1.05}
+.eb{font:700 .78rem var(--m);letter-spacing:.14em;color:var(--y);margin-bottom:.8rem}.nm{font:600 1rem var(--m);color:var(--mute);margin-top:1rem}
+.bdg{display:inline-block;font:700 .68rem var(--m);padding:.1rem .55rem;border:1px solid var(--t);color:var(--t);background:rgba(6,13,26,.85)}
+.card .bdg{position:absolute;left:.8rem;top:.8rem;z-index:2}
+.card.ft{grid-column:span 2;border-color:rgba(250,199,117,.6);background:linear-gradient(135deg,rgba(13,30,53,.9),rgba(29,158,117,.18))}.card.ft h3{font-size:1.5rem}.ft .a{aspect-ratio:16/7}
+@media(max-width:700px){.card.ft{grid-column:auto}}
+.flt{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.4rem}.flt .bt[aria-pressed=true]{background:var(--t);color:#04121a}
+.abt{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem}@media(max-width:860px){.abt{grid-template-columns:1fr}}
+.abt p{color:var(--mute);margin-bottom:1rem}.abt p b{color:var(--ink)}
+.pnl{background:rgba(13,30,53,.75);border:1px solid var(--line);padding:1.4rem;margin-bottom:1.2rem}.pnl h3{font:700 1rem var(--m);color:var(--t);margin-bottom:.4rem}
+.fl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:1rem 0}
+.nd{border:1px solid var(--line);background:rgba(6,13,26,.8);padding:.55rem .9rem;font:700 .8rem var(--m)}.nd:hover,.nd.on{border-color:var(--y);color:var(--y);box-shadow:0 0 14px rgba(250,199,117,.3)}
+.ar{color:var(--t)}.dt{min-height:4.5rem;color:var(--mute);border-left:3px solid var(--y);padding:.2rem 1rem}.dt b{color:var(--y)}
+.row{margin:.55rem 0}.row span{display:flex;justify-content:space-between;gap:.6rem;font-size:.84rem}.row em{font:normal .7rem var(--m);color:var(--mute);white-space:nowrap}
+.bar{height:6px;background:rgba(55,138,221,.18);margin-top:.25rem}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--b),var(--t));box-shadow:0 0 8px var(--t);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}.in .bar i{width:var(--w)}
+#cmk{position:fixed;inset:0;z-index:110;display:none;place-items:start center;padding-top:16vh;background:rgba(3,5,10,.8)}#cmk.open{display:grid}
+#cmk>div{width:min(560px,92vw);max-height:60vh;overflow:auto;background:var(--bg2);border:1px solid var(--t)}
+#cmk input{width:100%;background:none;border:0;border-bottom:1px solid var(--line);color:var(--ink);font:1rem var(--m);padding:1rem;outline:0}
+#cmk button{display:block;width:100%;text-align:left;background:none;border:0;padding:.6rem 1rem;font:.88rem var(--m)}#cmk button.on,#cmk button:hover{background:rgba(94,224,184,.15);color:var(--t)}
+#links{opacity:1;transform:none;pointer-events:auto}
+</style>
 </head>
-<body>
-    <div class="sidebar">
-        <div class="profile-img"></div>
-        <h1>Harley Davidson Tobias</h1>
-        <p class="tagline">Android/Huawei Mobile Developer | AI/ML Engineer | QA Test Engineer</p>
-        
-        <div class="contact-info">
-            <a href="mailto:hdavidson.tobias@gmail.com">
-                <i class="fas fa-envelope"></i>
-                hdavidson.tobias@gmail.com
-            </a>
-            <a href="tel:+639494011578">
-                <i class="fas fa-phone"></i>
-                +639 494 011 578
-            </a>
-            <a href="#">
-                <i class="fas fa-map-marker-alt"></i>
-                Antipolo City, Philippines
-            </a>
-            <a href="https://www.linkedin.com/in/harley-davidson-tobias-74a301382">
-                <i class="fa-brands fa-linkedin"></i>
-                www.linkedin.com/in/harley-davidson-tobias-74a301382
-            </a>
-            <a href="https://www.github.com/Niferium">
-                <i class="fa-brands fa-linkedin"></i>
-                Github: Niferium
-            </a>
-        </div>
+<body class="lock">
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<div id="boot"><div class="bx">
+  <h2>HARLEY.TOBIAS</h2><div id="log" aria-live="polite"></div>
+  <button id="start">[ enter portfolio ]</button><button class="bt" id="skip" style="margin:1rem 0 0 .8rem">skip intro</button>
+</div></div>
+
+<header>
+  <div class="w">
+    <button class="logo" id="logo" aria-label="Harley Tobias">HARLEY<b>.</b>TOBIAS</button>
+    <nav>
+      <a href="#about">About</a><a href="#work">Selected Work</a><a href="#build">How I Build</a><a href="#skills">Expertise</a><a href="#certs">Learning</a><a class="cn bt" href="#contact">Contact</a><button class="bt" id="kbtn" aria-label="Search and commands">Ctrl K</button>
+      <span class="lv" id="lv">PROFILE</span>
+      <button class="bt" id="tbtn" aria-label="Open terminal">&gt;_</button>
+      <button class="bt" id="snd" aria-pressed="true">Sound on</button>
+    </nav>
+  </div>
+  <div class="xp"><i id="xp"></i></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="w">
+    <div>
+      <p class="eb">APPLIED AI · SOFTWARE ENGINEERING · MOBILE SYSTEMS</p><h1>I build AI systems that solve real engineering problems.</h1><p class="nm">Harley Davidson Tobias · AI Engineer &amp; Software Engineer</p>
+      <div class="role">&gt; <span id="role"></span><i class="cr"></i></div>
+      <p class="l">I'm a software engineer with 10+ years across mobile applications, APIs and software testing. Today I focus on LLM-powered applications, workflow orchestration and cloud integration, connecting AI to software that can be tested, reviewed and used.</p>
+      <div class="cta"><a class="btn cut" href="#work">Explore Selected Work</a><a class="btn gh cut" href="#contact">Contact Me</a><button class="btn gh cut" id="open2">Explore Interactive Portfolio</button><a class="btn gh cut" target="_blank" rel="noopener" href="https://www.github.com/Niferium">View GitHub</a></div>
+      <p class="tip">Try <kbd>Ctrl</kbd>+<kbd>K</kbd> for the command palette or <kbd>`</kbd> for the terminal. Everything is also reachable by scrolling.</p>
+      <div class="stats">
+        <div><b class="n" data-to="10">0</b><span>years building</span></div>
+        <div><b class="n" data-to="2">0</b><span>flagship AI systems</span></div>
+        <div><b class="n" data-to="14">0</b><span>AWS learning certificates</span></div>
+        <div><b class="n" data-to="11">0</b><span>projects showcased</span></div>
+      </div>
     </div>
+    <button class="av" id="av" aria-label="Burst">
+      <svg viewBox="0 0 300 300" fill="none" stroke-width="2"><g class="rot" style="--d2:30s"><circle cx="150" cy="150" r="144" stroke="#5ee0b8" stroke-dasharray="3 14" opacity=".7"/></g><g class="rot rev" style="--d2:20s"><polygon points="150,12 270,81 270,219 150,288 30,219 30,81" stroke="#378ADD"/></g><g class="rot" style="--d2:26s"><polygon points="150,34 251,92 251,208 150,266 49,208 49,92" stroke="#FAC775" opacity=".8"/></g></svg>
+      <span class="ini">HT</span><img src="my_picture.jpeg" alt="Harley Davidson Tobias" onerror="this.remove()">
+    </button>
+  </div>
+</section>
 
-    <div class="main-content">
-        <section class="section">
-            <!-- <h2 class="section-title">Professional Summary</h2>
-            <p class="intro">
-                Results-driven Software Developer with 10 years of experience specializing in Android, Huawei, and iOS applications, as well as Unit/UI Testing, Postman API Testing, web development, inventory management, and POS technical support. Proficient in front-end and back-end development, API integration, and AI-assisted coding. Known for strong problem-solving skills, attention to detail, and a collaborative team spirit. Passionate about building scalable, high-performance applications and leveraging tools to optimize workflows.
-            </p> -->
-            <div class="profile-info">
-                <h1>Hi I'm Harley</h1>
-                <p class="indented-first-line">I am a seasoned Software Developer with over 10 years of experience specializing in Android and Huawei mobile application development, AI engineering, and full-stack integration. My work spans the full development lifecycle — from architecting and building high-performance mobile applications using Kotlin, Jetpack Compose, and Huawei HMS, to designing and deploying AI-powered systems leveraging Large Language Models, Retrieval-Augmented Generation (RAG), and AWS cloud services.
-I bring a disciplined, detail-oriented approach to every project, with a strong foundation in QA testing, CI/CD pipelines, and API integration. I am committed to building technology that is not only functional but scalable, maintainable, and future-ready.
-If you are looking for a developer who bridges the gap between mobile engineering and modern AI development — let's connect.
-                </p>
-            
-                <div class="buttons">
-                  <!-- <a href="#" class="btn btn-portfolio">➤ View Portfolio</a> -->
-                  <!-- <a href="cv.pdf" class="btn btn-resume">📄 cv</a> -->
-                </div>
-              </div>
-            
-              <!-- <div class="profile-img">
-                <img src="profile.jpg" alt="Profile Photo">
-              </div> -->
-        </section>
+<section id="about" class="pad"><div class="w">
+  <div class="sh rv"><h2>About</h2><p>A software engineer moving deeper into applied AI.</p></div>
+  <div class="abt rv"><div>
+    <p>I'm <b>Harley Davidson Tobias</b>, a software engineer with more than a decade of experience across mobile apps, API integrations, testing and delivery. My foundation is Android and Huawei ecosystems, including fintech.</p>
+    <p>My focus now is <b>applied AI engineering</b>: LLM-powered applications connected to real workflows. Through <b>Clementine</b> and <b>Sharmaine</b> I work on local inference, retrieval, context management, orchestration and API-based model integration, including <b>Amazon Bedrock</b>. I have also worked with Dockerized apps and AWS container workflows (ECR, EC2).</p>
+    <p>I care about the engineering around the model: how an app picks context, routes a task, validates output, controls tool access and hands a human the right point to review. I use AI-assisted coding to move faster, then inspect, test and verify what ships.</p></div>
+  <div class="pnl"><h3>HOW I THINK</h3><span class="chip">Workflow state</span><span class="chip">Rules &amp; validation</span><span class="chip">Task routing</span><span class="chip">Clarification</span><span class="chip">Structured output</span><span class="chip">Human review</span><span class="chip">Security boundaries</span><span class="chip">Budget awareness</span></div>
+  </div></div></section>
 
-        <section class="section">
-            <h2 class="section-title">PORTFOLIO</h2>
-            <div class="project-card">
-                <img src="top_1.jpeg" alt="TOP.ph">
-                <div class="project-content">
-                  <h2>TOP.ph</h2>
-                  <p>
-                    A virtual bridge for financial assets, enabling users to transact, manage, and transfer money electronically.
-                  </p>
-                  <p class="project-client">Client: <a href="https://TOP.ph" style="color: orange;" target="_blank">TOP.ph</a></p>
-                  <a href="https://play.google.com/store/apps/details?id=ph.theorangeco.orangeapp" style="color: orange;" target="_blank">View on Play Store</a>
-                  <a href="https://appgallery.huawei.com/app/C107756347" style="color: orange;" target="_blank">View on AppGallery</a>
-                </div>
-            </div>
+<section id="work" class="pad"><div class="w">
+  <div class="sh rv"><h2>Selected Work</h2><p>Filter by area, hover to tilt, click a card for the full case.</p></div>
+  <div class="flt" id="flt" role="group" aria-label="Filter projects"></div>
+  <div class="cards" id="cards"></div>
+</div></section>
 
-            <div class="project-card">
-                <img src="clementine.png" alt="Clementine">
-                <div class="project-content">
-                  <h2>Clementine AI</h2>
-                  <p>
-                    Clementine is a locally-deployed AI assistant designed to provide secure, private, and memory-enhanced support for both personal and enterprise use. Built as the successor to the prototype Erin, Clementine adopts a modular, Android-inspired architecture (e.g., ViewModel, Repository, DI) to keep components organized, testable, and maintainable.
-                    <br>It runs on top of DeepSeek R1 integrated via Ollama, with vector-based memory (RAG) for context-aware responses. Clementine is planned to feature a FastAPI backend, a lightweight Gradio web UI, and optional Android and mobile-friendly front-ends.
-                    <br>The project emphasizes local operation, data privacy, and extensibility, making it suitable for professional workflows—such as development assistance, secure knowledge retrieval, and task automation—without relying on external cloud LLM services.
-                  </p>
-                  <p class="project-client">Client: PouchyPixels</p>
-                </div>
-            </div>
+<section id="build" class="pad"><div class="w">
+  <div class="sh rv"><h2>How I Build AI</h2><p>The model is one part of the system. Click the stages.</p></div>
+  <div class="pnl rv"><h3>Workflow explorer</h3><div class="fl"><button class="bt" id="wnv" aria-pressed="false">Compare: naive Prompt → LLM</button><button class="bt" id="wrun">▶ Run my workflow</button></div><div class="fl" id="wf"></div><p class="dt" id="wd" aria-live="polite">Select a stage to see what it does.</p></div>
+  <div class="pnl rv"><h3>AI application on AWS: architecture explorer</h3><p class="tip">High-level only, no private details. Click a block.</p><div class="fl" id="ar1"></div><div class="fl" id="ar2"></div><p class="dt" id="ad" aria-live="polite">Top row: request flow. Bottom row: delivery flow.</p></div>
+</div></section>
 
-            <div class="project-card">
-                <img src="bingo_portfolio_showcase.png" alt="Digital Bingo Game System" onclick="window.location.href='bingo_portfolio_showcase.png'">
-                <div class="project-content">
-                  <h2>Digital Bingo Game System</h2>
-                  <p>
-                    A full-stack web application built to modernize physical bingo events — bringing real-time card tracking, live number draws, and instant winner validation all into one seamless platform.
-Key Features:
-Card Registration — Players register their physical bingo cards online before the event starts, entering their Card ID, full name, mobile number, and all 24 card numbers. A countdown timer enforces the registration deadline.
-Host Draw Panel — The game host draws numbers live through a dedicated panel, which visually tracks all called numbers on a full 1–75 bingo board with color-coded column highlights (B-I-N-G-O). Registered card count and draw history are displayed in real time.
-Moderator Verification Panel — When a player claims bingo, the moderator enters the Card ID to instantly verify whether the claim is valid. The system cross-checks drawn numbers against the registered card and returns a clear VALID or INVALID result — with the card grid highlighted to show matched numbers.
-Live Draw Viewer — A public-facing screen displays the current number, all previously called numbers with timestamps, and an auto-refreshing bingo board — ideal for projecting during live events.
-Stack: React · Node.js · Persistent storage for card registry and draw state · Mobile-friendly registration flow
-                  </p>
-                  <p class="project-client">Client: Quezon City Bahaghari Executive Clubs</p>
-                </div>
-            </div>
+<section id="skills" class="pad"><div class="w">
+  <div class="sh rv"><h2>Technical Expertise</h2><p>Bars show my experience level in each skill, not a test score.</p></div>
+  <div class="sk rv" id="sk"></div>
+  <div class="ai rv"><h3><i class="fas fa-robot"></i> AI-assisted development</h3><p>I use AI coding tools to learn and move faster, then inspect, test and verify what they produce. I am building LLM systems with RAG, routing and validation. (Yes, this site was co-built with an AI too.)</p></div><div class="ai rv" style="border-color:var(--b)"><h3 style="color:var(--b)">Also worked with</h3><p id="old"></p></div>
+</div></section>
 
-            <div class="project-card">
-                <img src="mytiangge_4.jpeg" alt="MyTianggePH">
-                <div class="project-content">
-                  <h2>MyTianggePH</h2>
-                  <p>
-                    We are a social enterprise marketplace designed to help Local Filipino Products and Services to be delivered.
-                  </p>
-                  <p class="project-client">Client: MyTianggePH</p>
-                </div>
-            </div>
+<section id="certs" class="pad"><div class="w">
+  <div class="sh rv"><h2>Learning &amp; Certifications</h2><p>Selected AWS learning certificates and training supporting my growth in cloud and AI engineering. These are course certificates, not AWS exam certifications. Click one to open it.</p></div>
+  <div class="certs rv" id="cl"></div>
+  <div class="sems rv" id="sems"></div>
+</div></section>
 
-            <div class="project-card">
-                <img src="servicio_2.jpeg" alt="Servicio International ">
-                <div class="project-content">
-                  <h2>Servicio International</h2>
-                  <p>
-                    Servicio LLC is an electronic service platform which provides facilities for hospitality, different maintenance services with our well trained staff.
-                  </p>
-                  <p class="project-client">Client: Servicio International </p>
-                </div>
-            </div>
+<section id="contact" class="pad contact"><div class="w">
+  <h2>Have a technical problem worth solving?</h2>
+  <p class="s">I am open to AI engineering and software roles and collaborations. Reach me directly:</p>
+  <button class="btn cut" id="cpy">Copy my email</button>
+  <div id="links">
+    <a href="mailto:hdavidson.tobias@gmail.com"><i class="fas fa-envelope"></i>hdavidson.tobias@gmail.com</a>
+    <a href="tel:+639494011578"><i class="fas fa-phone"></i>+639 494 011 578</a>
+    <a href="https://www.linkedin.com/in/harley-davidson-tobias-74a301382" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+    <a href="https://www.github.com/Niferium" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>github.com/Niferium</a>
+    <span class="tip"><i class="fas fa-map-marker-alt"></i> Antipolo City, Philippines</span>
+  </div>
+</div></section>
+</main>
+<footer><div class="w"><span>© 2026 Harley Davidson Tobias</span><span id="ac">Portfolio discoveries 0/11</span></div></footer>
 
-            <div class="project-card">
-                <img src="popsicle_mag.jpg" alt="PopsicleMag">
-                <div class="project-content">
-                  <h2>PopsicleMag</h2>
-                  <p>
-                    PopsicleMag is a creative online platform and publication that highlights fresh voices, contemporary culture, and emerging trends in art, fashion, and lifestyle. It celebrates bold storytelling and unique perspectives, offering a vibrant space for discovery and inspiration.
-                  </p>
-                  <p class="project-client">Client: PopsicleMag</p>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <img src="giordano_1.jpeg" alt="Giordano Philippines">
-                <div class="project-content">
-                  <h2>Giordano Philippines</h2>
-                  <p>
-                    Giordano Philippines is a leading apparel brand known for its timeless, versatile, and high-quality basics. The brand emphasizes comfort, simplicity, and effortless style, offering a wide range of casual wear that caters to diverse lifestyles. Giordano’s focus on classic designs and sustainable quality has made it a trusted name in everyday fashion.
-                  </p>
-                  <p class="project-client">Client: Giordano Philippines (Everfit Holding Company) </p>
-                </div>
-            </div>
+<div id="cmk" role="dialog" aria-label="Command palette"><div><input id="cin" placeholder="Type a command or project..." aria-label="Command"><div id="cls"></div></div></div>
+<div id="modal" role="dialog" aria-modal="true" aria-label="Project briefing"><div class="mbox cut" id="mbox"></div></div>
+<div id="term" role="dialog" aria-label="Terminal"><div id="tout"></div><div class="pr">$<input id="tin" autocomplete="off" spellcheck="false" aria-label="Terminal command"></div></div>
+<div id="toasts" aria-live="polite"></div>
 
-            <div class="project-card">
-                <img src="newera_1.jpeg" alt="New Era Philippines">
-                <div class="project-content">
-                  <h2>New Era Philippines</h2>
-                  <p>
-                    New Era Philippines is the official local arm of the iconic global headwear brand, renowned for its premium-quality caps and lifestyle apparel. Known for its authentic craftsmanship and strong ties to sports, streetwear, and pop culture, New Era continues to shape contemporary style while celebrating individuality and self-expression.
-                  </p>
-                  <p class="project-client">Client: New Era Philippines (Everfit Holding Company) </p>
-                </div>
-            </div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,AC=null,snd=true,got={},cnt=0,TOTAL=11;
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function beep(f,d,t,v){if(!AC||!snd)return;var o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime;o.type=t||'sine';o.frequency.setValueAtTime(f,n);o.frequency.exponentialRampToValueAtTime(f*1.5,n+d);g.gain.setValueAtTime(v||.04,n);g.gain.exponentialRampToValueAtTime(.0001,n+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(n+d)}
+function ach(id,t,d){if(got[id])return;got[id]=1;cnt++;$('ac').textContent='Portfolio discoveries '+cnt+'/'+TOTAL;var e=document.createElement('div');e.className='toast';e.innerHTML='<i class="fas fa-trophy"></i><div><b>'+t+'</b><small>'+d+'</small></div>';$('toasts').appendChild(e);setTimeout(function(){e.remove()},3800);beep(880,.2,'square',.03);setTimeout(function(){beep(1320,.3,'square',.03)},120)}
+$('snd').onclick=function(){snd=!snd;this.textContent=snd?'Sound on':'Sound off';this.setAttribute('aria-pressed',snd);beep(600,.1)};
 
-            <div class="project-card">
-                <img src="cyndie_amor.jpeg" alt="Cyndie Amor">
-                <div class="project-content">
-                  <h2>Event (Registration System)</h2>
-                  <p>
-                    Client is turning 18! Celebrate this milestone with a special video montage capturing cherished memories, heartfelt messages, and joyful moments from friends and family. Let's make her 18th birthday unforgettable with a personalized tribute that she'll treasure forever.
-                  </p>
-                  <p class="project-client">Client: Anonymous </p>
-                </div>
-            </div>
-        </section>
-        <!-- <section class="section">
-            <h2 class="section-title">Experience</h2>
-            
-            <div class="experience-item">
-                <h3 class="job-title">Mobile Android/Huawei Developer</h3>
-                <div class="company">The Orange Company Inc., Philippines</div>
-                <div class="date">August 2022 - Present</div>
-                <ul>
-                    <li>Developed multiple Android and Huawei mobile applications (In-House apps) with Jetpack Compose & XML (TOP.PH, TOP KEY, QR generation)</li>
-                    <li>Conducted UNIT/UI Testing using Espresso (Android Studio IDE)</li>
-                    <li>Integrated RESTful & SQL APIs for real-time and asynchronous data handling</li>
-                    <li>Implemented Huawei Mobile Services (HMS) such as Location Kit, Geocoder, and more</li>
-                    <li>Wrote & maintained unit tests with JUnit, Mockito and Espresso to ensure code reliability</li>
-                    <li>Automated UI testing and Unit Testing for robust user experience validation</li>
-                    <li>Conducted Postman testing of API request, response and authentications</li>
-                    <li>Optimized app performance by reducing memory leaks and improving response times</li>
-                    <li>Managed Play Store & AppGallery deployments, including signing, review compliance, and updates</li>
-                    <li>Enhanced CI/CD workflows in Azure DevOps for automated testing and release management</li>
-                </ul>
-            </div>
+/* data */
+var P=[
+['Sharmaine · AI-Assisted BA/QA Workflows','Internal company use case','LLM API, Amazon Bedrock, MCP','An AI application bringing LLM capabilities into practical business-analysis and QA work: user stories, acceptance criteria and test planning, with human approval kept in the loop. A backend orchestrates prompts, context and workflow, with controlled tool access through an MCP gateway where enabled.','',[],'AI','Internal · Professional experience',['LLM API integration','Amazon Bedrock','Docker','MCP','Workflow orchestration'],'<p><b>My part:</b> I work on this internal project, including the Amazon Bedrock LLM integration and the Docker container. Deployment is a collaboration with my AWS-focused colleague. Company-internal, so there is no public demo.</p>',1],
+['Clementine AI · Local-First Assistant','Personal project','Local LLM, RAG, Workflow','My working, private, local-first AI assistant and LLM-systems lab. It explores retrieval-augmented generation, context management, prompt/mode routing and workflow orchestration with local models and vector memory, evolved from an early prototype (Erin) through several model and architecture iterations.','clementine.png',[],'AI','Personal project · Working',['Python','FastAPI','Ollama','MLX','RAG','Chroma'],'<p><b>My part:</b> designed and built by me. Private and local-first by design.</p>',1],
+['Containerized AI Deployment','Company AI project (collaboration)','Docker, ECR, EC2, Bedrock','Packaging an AI application for containerized deployment: the app runs as a Docker container, its image stored in Amazon ECR and hosted on EC2, while model inference comes remotely from Amazon Bedrock through an API.','',[],'AI','Professional · Collaboration',['Docker','Amazon ECR','Amazon EC2','Amazon Bedrock'],'<p><b>My part:</b> I built the Docker container. The ECR/EC2 deployment was a collaboration with my AWS-focused colleague.</p>'],
+['TOP.ph','TOP.ph / The Orange Platform','Fintech, Android, Huawei','A virtual bridge for financial assets, enabling users to transact, manage and transfer money electronically. Live on both Google Play and Huawei AppGallery.','top_1.jpeg',[['Play Store','https://play.google.com/store/apps/details?id=ph.theorangeco.orangeapp'],['AppGallery','https://appgallery.huawei.com/app/C107756347'],['TOP.ph','https://TOP.ph']],'Mobile','Professional experience',['Kotlin','Android','Huawei HMS','API integration'],'<p><b>My part:</b> Android developer on the product (Kotlin and Huawei HMS).</p>'],
+['Digital Bingo Game System','Quezon City Bahaghari Executive Clubs','React, Node.js, Real-time','A full-stack app that modernizes physical bingo events: online card registration with a countdown, a host draw panel with a live 1 to 75 board, instant moderator VALID/INVALID card verification, and a public live-draw viewer for projection.','bingo_portfolio_showcase.png',[],'Web','Client project',['React','Node.js','Real-time']],
+['MyTianggePH','MyTianggePH','Android, Marketplace','A social-enterprise marketplace helping local Filipino products and services reach customers.','mytiangge_4.jpeg',[],'Mobile','Client / professional work',['Android','Marketplace']],
+['Servicio International','Servicio International','Hospitality, Platform','An electronic service platform for hospitality and maintenance services, backed by well-trained staff.','servicio_2.jpeg',[],'Web','Client / professional work',['Platform','Hospitality']],
+['PopsicleMag','PopsicleMag','Media, Culture','A creative online platform and publication highlighting fresh voices, contemporary culture and emerging trends in art, fashion and lifestyle.','popsicle_mag.jpg',[],'Web','Client / professional work',['Digital media','Web']],
+['Giordano Philippines','Giordano Philippines (Everfit Holding Company)','Retail, POS','Retail technology work for a leading apparel brand known for timeless, versatile, high-quality basics.','giordano_1.jpeg',[],'Retail','Professional experience',['Retail','POS']],
+['New Era Philippines','New Era Philippines (Everfit Holding Company)','Retail, POS','Retail technology work for the local arm of the global headwear brand, known for premium caps and lifestyle apparel.','newera_1.jpeg',[],'Retail','Professional experience',['Retail','POS']],
+['Event Registration System','Private event','Web, Event','A registration system for a special 18th birthday celebration, with a personalized video montage tribute.','cyndie_amor.jpeg',[],'Web','Client project',['Web','Event']]];
+var S=[['Applied AI & LLM',[['LLM application development',1],['LLM API integration (Bedrock)',1],['RAG & embeddings',1],['Workflow orchestration',1],['Local LLMs (Ollama, MLX)',1],['Model adaptation experiments',3]]],['Cloud & Containers',[['Docker',1],['Amazon ECR / EC2',2],['Amazon Bedrock',1],['AWS IAM',3]]],['Android & Mobile',[['Kotlin & Android',0],['Jetpack Compose',0],['Huawei HMS Core',0],['HarmonyOS / ArkTS',2]]],['Backend & Web',[['REST API integration',0],['Python & FastAPI',1],['React & Node.js',1],['HTML, CSS, JavaScript',1]]],['Quality & Testing',[['JUnit, Mockito, Espresso',0],['Postman API testing',0],['Test-case design',0],['AI-assisted QA planning',2]]],['Data & Retrieval',[['SQL & SQLite',1],['MongoDB',2],['Semantic retrieval (Chroma)',1]]]];
+var OLD=['Java','C++','C# / .NET','Visual Basic','Oracle','MS SQL Server','MySQL','PHP & WordPress','MEAN stack','Angular','Azure DevOps','CI/CD pipelines','iOS UI testing','Joomla'];
+var LV=[['Professional',90],['Hands-on',70],['Working',50],['Exploring',30]];
+var C=[['AI Practitioner Learning Plan','AWS Artificial Intelligence Practitioner Learning Plan.pdf'],['Foundations: Machine Learning Basics','AWS Foundations ML Basics.pdf'],['Cloud Practitioner Essentials','aws_cloud_practioner_certificate.pdf'],['Customizing and Evaluating LLMs with SageMaker JumpStart','customizing_evaluation_awssagemaker_jumpstart.pdf'],['Developing Machine Learning Solutions','Developing ML Solutions.pdf'],['Developing Generative AI Solutions','Developing_Generative_ai_solutions.pdf'],['Essentials of Prompt Engineering','Essentials of Prompt Engineering.pdf'],['Exploring AI Use Cases and Applications','Exploring Artificial Intelligence Use Cases and Applications.pdf'],['Foundations of Prompt Engineering','Foundations_of_prompt_engineering.pdf'],['Introduction to Amazon EC2 Auto Scaling','Introduction to Amazon ec2 auto scale .pdf'],['Optimizing Foundation Models','Optimizing Foundation Models.pdf'],['Planning a Machine Learning Project','planning a ML project.pdf'],['Responsible AI Practices','Responsible Artificial Intelligence Practices.pdf'],['Security, Compliance, and Governance for AI','Security_compliance_governance_ai.pdf']];
+var Z=[['AWS Cloud Day Philippines, AI Edition','August 19, 2025','Generative AI and data-driven solutions: building AI applications, AWS tools for AI development, and how GCash, PayMaya and others use them.','certs/ai_philippine_edition.png'],['AWS Innovate (Generative AI + Data)','March 06, 2025','Scaling AI applications, training LLMs, and AWS tools: Amazon Bedrock, SageMaker and Amazon Q.','certs/Certificate_of_attendance_AWS Innovate.png'],['AWS Summit Singapore','May 2024','A $12B AWS investment in Singapore by 2028, the AWS AI Spring program to train 5,000 people a year, and leadership in the era of generative AI.',''],['Additional training','','Joomla (Alexander Abe), Angular, React & Node (Filip Jerga), Data Center Application Development Basics and Speak English Like A PRO (ACLC Antipolo).','']];
 
-            <div class="experience-item">
-                <h3 class="job-title">Software Information Technology</h3>
-                <div class="company">SERVICIO International, Doha Qatar</div>
-                <div class="date">April 2020 - September 2021</div>
-                <ul>
-                    <li>Developed/Maintained SERVICIO application Android and iOS version</li>
-                    <li>Q.A Tester for the Android version</li>
-                    <li>Website development and maintenance of SERVICIO</li>
-                    <li>Maintained AWS Cloud Server for SERVICIO</li>
-                    <li>Managed MongoDB Database</li>
-                    <li>Provided technical support for office equipment</li>
-                </ul>
-            </div>
+/* boot */
+var L=['> booting harley.tobias v3','> loading android.kotlin + huawei.hms ... ok','> loading llm.rag.workflows ....... ok','> linking aws bedrock + docker .... ok','> 14 learning certificates ....... ok','> portfolio ready'],lg=$('log'),k=0;
+(function nx(){if(k<L.length){lg.innerHTML+=L[k++]+'<br>';setTimeout(nx,reduce?0:380)}else{$('start').classList.add('rdy');if(!$('boot').classList.contains('go'))$('start').focus()}})();$('skip').onclick=function(){$('start').click()};
+$('start').onclick=function(){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}beep(300,.5,'sawtooth',.04);$('boot').classList.add('go');document.body.classList.remove('lock');ach('st','Systems online','Welcome in.');setTimeout(function(){burst(innerWidth/2,innerHeight*.4,45)},500)};
 
-            <div class="experience-item">
-                <h3 class="job-title">Head Android Developer – Front End/Back End</h3>
-                <div class="company">MyTianggePH, Philippines</div>
-                <div class="date">June 2020 - March 2021</div>
-                <ul>
-                    <li>Developed MyTianggePH android version</li>
-                    <li>Q.A Tester for the Website development team and Android version</li>
-                    <li>API Back-End Tester using CURL and Postman for integration between android app and website</li>
-                    <li>API Back-End Developer for android</li>
-                </ul>
-            </div>
+/* canvas */
+var cv=$('fx'),g=cv.getContext('2d'),W,H,PT=[],B=[],R=[],m={x:.5,y:.5,px:-999,py:-999},mat=0,cols=[],i;
+function size(){var D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;g.setTransform(D,0,0,D,0,0);PT=[];for(i=0;i<Math.min(80,W*H/16000|0);i++)PT.push({x:Math.random()*W,y:Math.random()*H,vx:Math.random()*.4-.2,vy:Math.random()*.4-.2});cols=[];for(i=0;i<W/16;i++)cols.push(Math.random()*H)}
+addEventListener('resize',size);size();
+addEventListener('pointermove',function(e){m.px=e.clientX;m.py=e.clientY;m.x=e.clientX/W;m.y=e.clientY/H},{passive:true});
+function burst(x,y,n){n=n||30;for(var j=0;j<n;j++){var a=Math.random()*6.283,s=2+Math.random()*7;B.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c:['#5ee0b8','#378ADD','#FAC775'][j%3]})}R.push({x:x,y:y,r:4,l:1});beep(180,.35,'sawtooth',.05)}
+var clicks=0;
+addEventListener('pointerdown',function(e){if(e.target.closest('input,#term,#boot,#cmk'))return;burst(e.clientX,e.clientY,16);if(++clicks==12)ach('ck','Click happy','12 clicks. Keep going.')});
+function draw(t){if(!reduce)requestAnimationFrame(draw);t*=.001;g.clearRect(0,0,W,H);
+  var gr=g.createLinearGradient(0,0,W,0),p,q,dx,dy,d,j;gr.addColorStop(0,'#378ADD');gr.addColorStop(.55,'#5ee0b8');gr.addColorStop(1,'#FAC775');g.strokeStyle=gr;g.lineWidth=1.2;
+  for(i=0;i<12;i++){var kk=i/11,b=H*(.2+kk*.65);g.globalAlpha=.05+.3*Math.pow(1-Math.abs(kk-m.y),2);g.beginPath();
+    for(var x=0;x<=W;x+=14){var u=x/W,y=b+Math.sin(u*5+t*.8+kk*3)*(20+kk*26)+Math.sin(u*11-t*1.1+kk*6)*8-Math.exp(-Math.pow((u-m.x)*3,2))*60*Math.sin(t+kk*4);x?g.lineTo(x,y):g.moveTo(x,y)}g.stroke()}
+  g.globalAlpha=1;g.lineWidth=1;
+  for(i=0;i<PT.length;i++){p=PT[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;dx=m.px-p.x;dy=m.py-p.y;d=Math.sqrt(dx*dx+dy*dy);
+    if(d<160){p.x+=dx*.01;p.y+=dy*.01;g.strokeStyle='rgba(250,199,117,'+(1-d/160)*.6+')';g.beginPath();g.moveTo(p.x,p.y);g.lineTo(m.px,m.py);g.stroke()}
+    for(j=i+1;j<PT.length;j++){q=PT[j];dx=p.x-q.x;dy=p.y-q.y;d=dx*dx+dy*dy;if(d<8100){g.strokeStyle='rgba(94,224,184,'+(1-d/8100)*.25+')';g.beginPath();g.moveTo(p.x,p.y);g.lineTo(q.x,q.y);g.stroke()}}
+    g.fillStyle='rgba(200,240,250,.8)';g.fillRect(p.x-1,p.y-1,2,2)}
+  for(i=B.length-1;i>=0;i--){p=B[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.95;p.vy*=.95;p.l-=.022;if(p.l<=0){B.splice(i,1);continue}g.globalAlpha=p.l;g.fillStyle=p.c;g.fillRect(p.x,p.y,3,3)}
+  for(i=R.length-1;i>=0;i--){p=R[i];p.r+=8;p.l-=.025;if(p.l<=0){R.splice(i,1);continue}g.globalAlpha=p.l;g.strokeStyle='#5ee0b8';g.lineWidth=2;g.beginPath();g.arc(p.x,p.y,p.r,0,6.283);g.stroke();g.lineWidth=1}
+  if(mat>Date.now()){g.fillStyle='#5ee0b8';g.font='14px monospace';g.globalAlpha=.8;for(i=0;i<cols.length;i++){g.fillText(String.fromCharCode(0x30A0+Math.random()*60|0),i*16,cols[i]);cols[i]=cols[i]>H&&Math.random()>.975?0:cols[i]+16}}
+  g.globalAlpha=1}
+draw(0);
+$('av').onclick=function(){var r=this.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,60);beep(240,.4,'sawtooth',.05)};
 
-            <div class="experience-item">
-                <h3 class="job-title">Lead Systems Developer / IT Assistant</h3>
-                <div class="company">Everfit Holding Company Inc., Philippines</div>
-                <div class="date">May 2017 - March 2020</div>
-                <ul>
-                    <li>Provided support for In-house POS system for Philippines, Mall Networks</li>
-                    <li>Training Instructor for POS In-house application</li>
-                    <li>Team Lead for Management Inventory System and VIP card system</li>
-                    <li>Created new databases using data CFG (Context Free Grammar)</li>
-                    <li>Generated reports and monitoring using backend SQL queries (MS SQL Server 2000 ~ 2008 R2)</li>
-                    <li>Supported stores: Giordano PH, NEW ERA Caps PH, NBA Philippines, Popsicle Magazine PH, Versus Barcade Uptown Makati</li>
-                </ul>
-            </div>
+/* role typing + counters */
+var roles=['AI Engineer','LLM Application Engineer','Software Engineer','Android & Huawei Developer','AI Workflow Engineer'],ri=0,ci=0,dir=1;
+function ty(){var r=roles[ri],w;ci+=dir;$('role').textContent=r.slice(0,ci);w=dir>0&&ci==r.length?1500:dir<0&&ci==0?300:60;if(dir>0&&ci==r.length)dir=-1;else if(dir<0&&ci==0){dir=1;ri=(ri+1)%roles.length}setTimeout(ty,w)}
+if(reduce)$('role').textContent=roles[0];else ty();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);e.target.classList.add('in');if(e.target.classList.contains('n')){var to=+e.target.dataset.to,s=0;(function c(){s++;e.target.textContent=Math.round(to*Math.min(1,s/40))+(to==10?'+':'');if(s<40)requestAnimationFrame(c)})()}})},{threshold:.2});
+[].forEach.call(document.querySelectorAll('.rv,.n'),function(e){io.observe(e)});
 
-            <div class="experience-item">
-                <h3 class="job-title">System Analyst Data Programmer Engineer Trainee</h3>
-                <div class="company">Asian Business Solutions Inc., Makati City PH</div>
-                <div class="date">May 2015 - April 2016</div>
-                <ul>
-                    <li>Spring MVC JavaScript/Dojo Toolkit developer</li>
-                    <li>User Interface / Web Design</li>
-                    <li>Key Accomplishment: Insurance Brokerage System</li>
-                </ul>
-            </div>
-        </section> -->
+/* art, cards, modal */
+function poly(n,r,rot){var s=[];for(var j=0;j<n;j++){var a=rot+j*6.2832/n-1.5708;s.push((200+Math.cos(a)*r).toFixed(1)+','+(150+Math.sin(a)*r).toFixed(1))}return s.join(' ')}
+function art(n){var c=['#378ADD','#5ee0b8','#FAC775'][n%3],s='<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#0a1628"/>';for(var j=0;j<7;j++)s+='<g class="rot'+(j%2?' rev':'')+'" style="--d2:'+(12+j*4)+'s"><polygon points="'+poly(3+n%6,125-j*16,j*.2)+'" fill="none" stroke="'+c+'" stroke-opacity="'+(1-j*.1)+'" stroke-width="'+(1+j*.15)+'"/></g>';return s+'<circle cx="200" cy="150" r="8" fill="'+c+'"/></svg>'}
+function pic(i){if(!P[i][4])return art(i);return art(i)+'<img src="'+P[i][4]+'" alt="'+P[i][0]+'" loading="lazy" onerror="this.remove()">'}
+P.forEach(function(p,i){var c=document.createElement('button');c.className='card'+(p[10]?' ft':'');c.dataset.c=p[6];c.setAttribute('aria-label','View project: '+p[0]);c.innerHTML='<div class="a">'+pic(i)+'</div><span class="bdg">'+p[7]+'</span><span class="go">View Project</span><div class="m"><h3>'+p[0]+'</h3><small>'+p[2]+'</small></div>';
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--ry',((x-.5)*12).toFixed(1)+'deg');c.style.setProperty('--rx',((.5-y)*12).toFixed(1)+'deg');c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+  c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+  c.onclick=function(){openM(i)};$('cards').appendChild(c)});
+['All','AI','Mobile','Web','Retail'].forEach(function(f,j){var b=document.createElement('button');b.className='bt';b.textContent=f;b.setAttribute('aria-pressed',j==0);b.onclick=function(){[].forEach.call($('flt').children,function(x){x.setAttribute('aria-pressed',x===b)});[].forEach.call($('cards').children,function(c){c.style.display=f=='All'||c.dataset.c==f?'':'none'});beep(500,.08)};$('flt').appendChild(b)});
+var last;
+function openM(i){var p=P[i];last=document.activeElement;$('mbox').innerHTML='<div class="ma">'+pic(i)+'</div><div class="mt"><span class="bdg" style="justify-self:start">'+p[7]+'</span><h3>'+p[0]+'</h3><small>Organization / Context: '+p[1]+'</small><p>'+p[3]+'</p>'+(p[9]||'')+'<div>'+p[8].map(function(x){return'<span class="chip">'+x+'</span>'}).join('')+'</div><div class="ls">'+p[5].map(function(l){return'<a class="btn" target="_blank" rel="noopener" href="'+l[1]+'">'+l[0]+'</a>'}).join('')+'<button class="bt" id="cx">Close</button></div></div>';$('modal').classList.add('open');$('cx').focus();$('cx').onclick=closeM;beep(420,.3,'sawtooth',.04);ach('pm','Project viewed','You opened a project case.')}
+function closeM(){$('modal').classList.remove('open');if(last)last.focus()}
+$('modal').addEventListener('click',function(e){if(e.target===this)closeM()});
 
-        <section class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Mobile Development</h3>
-                    <ul>
-                        <li>Android (Kotlin, Java)</li>
-                        <li>Jetpack Compose</li>
-                        <li>Huawei HarmonyOS</li>
-                        <li>HMS Core Integration</li>
-                        <li>iOS UI Testing</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>Java & Kotlin</li>
-                        <li>ArkTypeScript</li>
-                        <li>Python</li>
-                        <li>C++, C#, .Net</li>
-                        <li>Visual Basic</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <ul>
-                        <li>HTML5, CSS</li>
-                        <li>MEAN Stack</li>
-                        <li>Angular, Node.js</li>
-                        <li>Express JS</li>
-                        <li>PHP, WordPress</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>API & Testing</h3>
-                    <ul>
-                        <li>Retrofit2, Alamofire</li>
-                        <li>REST API</li>
-                        <li>Postman API Testing</li>
-                        <li>JUnit, Mockito</li>
-                        <li>Espresso UI Testing</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <ul>
-                        <li>MongoDB</li>
-                        <li>MySQL</li>
-                        <li>SQLite DAO</li>
-                        <li>MS SQL Server</li>
-                        <li>Oracle Database</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & Cloud</h3>
-                    <ul>
-                        <li>Amazon Web Services</li>
-                        <li>Azure DevOps</li>
-                        <li>CI/CD Pipelines</li>
-                        <li>Play Store Deployment</li>
-                        <li>Huawei AppGallery</li>
-                    </ul>
-                </div>
-            </div>
+/* skills, certs, seminars */
+$('sk').innerHTML=S.map(function(s){return'<div><h3>'+s[0]+'</h3>'+s[1].map(function(x){var l=LV[x[1]];return'<div class="row"><span>'+x[0]+'<em>'+l[0]+'</em></span><div class="bar" role="img" aria-label="'+x[0]+': '+l[0]+'"><i style="--w:'+l[1]+'%"></i></div></div>'}).join('')+'</div>'}).join('')+'<div><h3>Legend</h3><p class="tip">Professional: used in paid work. Hands-on: built real projects. Working: can use it with docs. Exploring: learning now.</p></div>';
+$('old').innerHTML=OLD.map(function(x){return'<span class="chip">'+x+'</span>'}).join('');
+$('cl').innerHTML=C.map(function(c){return'<a class="cert" target="_blank" rel="noopener" href="'+encodeURI('certs/'+c[1])+'"><i class="fas fa-certificate" style="color:var(--y);margin-right:.5rem"></i>'+c[0]+'</a>'}).join('');
+$('sems').innerHTML=Z.map(function(z){return'<'+(z[3]?'a target="_blank" rel="noopener" href="'+encodeURI(z[3])+'"':'div')+' class="sem"><h3>'+z[0]+'</h3>'+(z[1]?'<small>'+z[1]+'</small>':'')+'<p>'+z[2]+'</p></'+(z[3]?'a':'div')+'>'}).join('');
 
-            <div class="highlight">
-                <h3><i class="fas fa-robot"></i> AI-Assisted Development</h3>
-                <p>Leveraging ChatGPT, DeepSeek, and other AI tools for code generation, debugging, and documentation. Currently learning and developing AI Large Language Model with RAG, enhancing NLP and trained model sets.</p>
-            </div>
-        </section>
+/* terminal */
+var T=$('term'),out=$('tout'),inp=$('tin'),welcomed=0;
+function pr(s,c){var d=document.createElement('div');if(c)d.className=c;d.innerHTML=s;out.appendChild(d);out.scrollTop=out.scrollHeight}
+function tog(f){var o=f===undefined?!T.classList.contains('open'):f;T.classList.toggle('open',o);if(o){if(!welcomed){welcomed=1;pr('<b>Harley\'s AI</b> (scripted portfolio terminal; real LLM chat can be plugged in) online. Type <b>help</b>.')}setTimeout(function(){inp.focus()},50);ach('tm','Hacker mode','You opened the terminal.');beep(500,.1,'square')}else inp.blur()}
+$('tbtn').onclick=function(){tog()};$('open2').onclick=function(){tog(true)};
+/* ===== LLM PLACEHOLDER =====
+   Set enabled:true and adapt the request body / response fields to your hosted LLM API.
+   Never put secret keys in this file: call your own server or proxy that holds them. */
+var LLM={enabled:false,url:'https://YOUR-SERVER/api/chat',system:'You are the assistant on Harley Tobias portfolio. Answer only about his work.'};
+async function askLLM(q){var r=await fetch(LLM.url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:LLM.system,message:q})});if(!r.ok)throw new Error('HTTP '+r.status);var d=await r.json();return d.reply||d.message||d.text||JSON.stringify(d)}
+var A=[[/sharmaine|bedrock|business|\bba\b|user stor/,'Sharmaine: an internal company AI use case I work on (BA/QA workflows, Amazon Bedrock LLM integration). Type <b>sharmaine</b>.'],[/docker|ecr|ec2|deploy|container/,'I built the Docker container; ECR/EC2 deployment is a collaboration with my AWS-focused colleague.'],[/clementine|local|ollama|rag\b|private|llm|\bai\b/,'Clementine: my working, private, local-first AI assistant with RAG memory. Type <b>clementine</b>.'],[/hire|available|contact|email|job/,'Type <b>contact</b>, or use the Contact section at the bottom.'],[/android|kotlin|compose|mobile|\bapp/,'Android with Kotlin and Jetpack Compose, plus Huawei apps on Play Store and AppGallery (TOP.ph).'],[/huawei|hms|harmony/,'Huawei HMS Core, HarmonyOS with ArkTS, and AppGallery deployments.'],[/aws|cert|cloud/,'14 AWS learning certificates (course certificates, not exam credentials). Type <b>certs</b>.'],[/test|\bqa\b|junit|espresso|postman/,'JUnit, Mockito, Espresso UI tests and Postman API testing.'],[/year|experience|senior/,'10+ years across mobile, web, retail POS and now applied AI.'],[/built|site|website/,'This site was co-built by Harley and an AI pair programmer. That is rather the point.'],[/^(hi|hello|hey)\b/,'Hello! Ask about AI, Sharmaine, Clementine, AWS, Android or testing.']];
+var CM={help:function(){pr('<b>about whoami skills projects sharmaine clementine docker workflow certs contact status secrets matrix clear exit</b> · or just type a question')},
+about:function(){pr('10+ years in Android, Huawei, testing and now applied AI. Based in Antipolo City, Philippines.')},
+whoami:function(){pr('<b>Harley Davidson Tobias</b><br>AI Engineer &amp; Software Engineer')},
+skills:function(){S.forEach(function(s){pr('<b>'+s[0]+'</b>: '+s[1].map(function(x){return x[0]+' ['+LV[x[1]][0]+']'}).join(', '))})},
+projects:function(){P.forEach(function(p,i){pr((i+1)+'. <b>'+p[0]+'</b> · '+p[7])})},
+sharmaine:function(){pr('<b>Sharmaine</b>: internal company AI use case I work on. BA/QA workflows, Amazon Bedrock integration, Docker container built by me.');openM(0)},
+clementine:function(){pr('<b>Clementine</b>: private, local-first personal AI assistant. Working.');openM(1)},
+docker:function(){pr('I built the Docker container. ECR + EC2 deployment: collaboration with my AWS colleague.');openM(2)},
+workflow:function(){pr('Running my AI workflow explorer...');go('build');setTimeout(runWf,600)},
+certs:function(){C.forEach(function(c){pr('· '+c[0])})},
+contact:function(){pr('hdavidson.tobias@gmail.com · github.com/Niferium · LinkedIn: harley-davidson-tobias-74a301382')},
+status:function(){pr('LLM chat: <b>'+(LLM.enabled?'connected to my server':'scripted mode (placeholder ready)')+'</b>')},
+secrets:function(){pr('Hidden: a classic cheat code, something clickable in the header, and a command with <b>sudo</b> in it.')},
+matrix:function(){mat=Date.now()+7000;pr('Wake up, Harley...')},
+clear:function(){out.innerHTML=''},exit:function(){tog(false)}};
+function run(v){var l=v.toLowerCase(),a=l.split(' ')[0];if(!l)return;beep(600,.05,'square',.02);
+  if(l.indexOf('sudo hire')==0){pr('<b>[sudo]</b> access granted. Starting hiring sequence...');for(var j=0;j<6;j++)setTimeout(function(){burst(Math.random()*W,Math.random()*H*.7,40)},j*220);setTimeout(function(){pr('Offer letter ready. Send it to hdavidson.tobias@gmail.com')},1400);ach('sc','Smooth operator','You ran a sudo command.');return}
+  if(CM[a])return CM[a]();var q=a==='ask'?l.slice(4).trim():l;
+  if(LLM.enabled){pr('<i>thinking...</i>');return askLLM(q).then(function(t){pr(esc(t))}).catch(function(e){pr('LLM error: '+esc(String(e.message||e)))})}
+  var r=A.filter(function(x){return x[0].test(q)})[0];pr(r?r[1]:'No scripted answer for that. Try <b>help</b>.')}
+inp.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=inp.value.trim();inp.value='';pr('<span class="u">$</span> '+esc(v));run(v)}if(e.key!=='Escape')e.stopPropagation()});
 
-        <!-- <section class="section">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-item">
-                <h3 class="job-title">Computer System and Design Program</h3>
-                <div class="company">AMA Computer Learning Center, Antipolo City</div>
-                <div class="date">Degree Completed 2013-2015</div>
-            </div>
+/* easter eggs */
+var KS=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],kp=0;
+addEventListener('keydown',function(e){
+  if(e.key==='Escape'){closeM();closeK();tog(false)}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openK()}
+  if(e.key==='`'){e.preventDefault();tog()}
+  var key=e.key.length==1?e.key.toLowerCase():e.key;kp=key===KS[kp]?kp+1:(key===KS[0]?1:0);
+  if(kp==KS.length){kp=0;var on=document.documentElement.classList.toggle('god');for(var j=0;j<8;j++)setTimeout(function(){burst(Math.random()*W,Math.random()*H,50)},j*140);ach('kn','Cheat code','GOD MODE '+(on?'unlocked. Hue shift engaged.':'disabled.'))}});
+var lc=0;$('logo').onclick=function(){burst(60,30,25);if(++lc==5)ach('lg','Secret found','Harley and an AI pair-programmed this site.')};
 
-            <div class="education-item">
-                <h3 class="job-title">Bachelor of Science Information Technology - Digital Arts</h3>
-                <div class="company">Colegio de San Juan de Letran, Manila</div>
-                <div class="date">Semester 2011-2012</div>
-            </div>
+/* contact */
+$('cpy').onclick=function(){var m='hdavidson.tobias@gmail.com',ok=function(){ach('cp','Email copied',m);burst(innerWidth/2,innerHeight*.6,50)},fb=function(){location.href='mailto:'+m};navigator.clipboard?navigator.clipboard.writeText(m).then(ok,fb):fb()};
+/* explorers */
+function mk(el,nodes,det,first){var bs=[];$(el).innerHTML='';nodes.forEach(function(n,j){if(j)$(el).insertAdjacentHTML('beforeend','<span class="ar" aria-hidden="true">→</span>');var b=document.createElement('button');b.className='nd';b.textContent=n[0];b.onclick=function(){sel(j,1)};$(el).appendChild(b);bs.push(b)});
+  function sel(j,u){bs.forEach(function(x,k){x.classList.toggle('on',k==j)});$(det).innerHTML='<b>'+nodes[j][0]+'.</b> '+nodes[j][1];if(u){beep(400+j*60,.1,'triangle',.03);ach(el=='wf'?'wf':'ar','Diagram explorer','You explored how I design AI systems.')}}return{sel:sel,n:nodes.length}}
+var WS=[['Workflow state','Track what the app is doing and what already happened, instead of trusting chat history alone.'],['Rules & validation','Deterministic rules set boundaries and check required fields.'],['Task router','Pick the right path or model behavior rather than sending everything through one expensive path.'],['Clarify','Ask for missing information before a costly or consequential step.'],['LLM','The model is one component. It receives only the context that is relevant.'],['Validate output','Check structure and correctness. A fluent answer is not necessarily a correct one.'],['Human review','A person approves anything that needs judgment, accountability or sign-off.']],
+N=[['Prompt','Everything is stuffed into one prompt.'],['LLM','The model does all the work.'],['Answer','Whatever comes back is shown. No state, no checks, no review.']],naive=0,wx,wt=0;
+function setWf(){wx=mk('wf',naive?N:WS,'wd');$('wnv').setAttribute('aria-pressed',naive);$('wnv').textContent=naive?'Back to my workflow':'Compare: naive Prompt → LLM'}
+function runWf(){clearInterval(wt);var j=0;wx.sel(0);wt=setInterval(function(){if(++j>=wx.n){clearInterval(wt);ach('wf','Diagram explorer','You ran the workflow.');return}wx.sel(j);beep(400+j*60,.1,'triangle',.03)},reduce?400:900)}
+$('wnv').onclick=function(){naive=!naive;clearInterval(wt);setWf()};$('wrun').onclick=function(){if(naive){naive=0;setWf()}runWf()};setWf();
+mk('ar1',[['User interface','Where the user chats or runs a workflow.'],['Backend / orchestrator','Authentication, sessions, guardrails, prompt and context building, orchestration and response handling. I built the Docker container for this.'],['Amazon Bedrock','Managed LLM access through an AWS API. The model runs remotely, not inside the container. I worked on this integration.'],['Validation','The app parses and checks model output before anything is used.'],['MCP gateway (where enabled)','A controlled interface to approved tools. The app and gateway enforce permissions; a model response is never authorization.']],'ad');
+mk('ar2',[['Docker image','Packages the backend and its dependencies. Ownership: I built the container.'],['Amazon ECR','Stores the container image. Ownership: collaboration with my AWS-focused colleague.'],['EC2 host','Runs the container. Ownership: collaboration with my AWS-focused colleague.']],'ad');
+/* command palette */
+var SEC=['PROFILE','WORK','BUILD','EXPERTISE','CONTACT'];function go(id){$(id).scrollIntoView({behavior:reduce?'auto':'smooth'})}
+var K=[['Go to About',function(){go('about')}],['Go to Selected Work',function(){go('work')}],['Go to How I Build AI',function(){go('build')}],['Go to Technical Expertise',function(){go('skills')}],['Go to Learning & Certifications',function(){go('certs')}],['Go to Contact',function(){go('contact')}],['Run AI workflow explorer',function(){go('build');setTimeout(runWf,600)}],['Open terminal',function(){tog(true)}],['Copy email',function(){$('cpy').click()}],['Toggle sound',function(){$('snd').click()}]];
+P.forEach(function(p,i){K.push(['Project: '+p[0],function(){openM(i)}])});
+var kq=$('cin'),kl=$('cls'),ks=0,kv=[];
+function rk(){var q=kq.value.toLowerCase();kv=K.filter(function(x){return x[0].toLowerCase().indexOf(q)>-1});ks=Math.min(ks,Math.max(kv.length-1,0));kl.innerHTML='';kv.forEach(function(x,j){var b=document.createElement('button');b.textContent=x[0];b.className=j==ks?'on':'';b.onclick=function(){xk(j)};kl.appendChild(b)})}
+function xk(j){if(!kv[j])return;closeK();kv[j][1]()}
+function openK(){$('cmk').classList.add('open');kq.value='';ks=0;rk();kq.focus();ach('cm','Power user','You opened the command palette.')}
+function closeK(){$('cmk').classList.remove('open')}
+kq.oninput=function(){ks=0;rk()};
+kq.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){ks=Math.min(ks+1,kv.length-1);rk();e.preventDefault()}if(e.key==='ArrowUp'){ks=Math.max(ks-1,0);rk();e.preventDefault()}if(e.key==='Enter')xk(ks);if(e.key!=='Escape')e.stopPropagation()});
+$('cmk').addEventListener('click',function(e){if(e.target===this)closeK()});$('kbtn').onclick=openK;
 
-            <div class="education-item">
-                <h3 class="job-title">Bachelor of Science in Industrial Engineering</h3>
-                <div class="company">Polytechnic University of the Philippines, Manila</div>
-                <div class="date">Semester 2010-2011</div>
-            </div>
-        </section> -->
-
-        <section class="section">
-            <h2 class="section-title">AWS Certificates</h2>
-            <div class="certificates-grid">
-                <div class="certificate-item", onclick="window.location.href='certs/AWS Artificial Intelligence Practitioner Learning Plan.pdf'" >AWS Artificial Intelligence Practitioner Learning Plan</div>
-                <div class="certificate-item", onclick="window.location.href='certs/AWS Foundations ML Basics.pdf'">AWS Foundations: Machine Learning Basics</div>
-                <div class="certificate-item", onclick="window.location.href='certs/aws_cloud_practioner_certificate.pdf'">AWS Cloud Practitioner Essentials</div>
-                <div class="certificate-item", onclick="window.location.href='certs/customizing_evaluation_awssagemaker_jumpstart.pdf'">Customizing and Evaluating LLMs Using Amazon SageMaker Jumpstart</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Developing ML Solutions.pdf'">Developing Machine Learning Solutions</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Developing_Generative_ai_solutions.pdf'">Developing Generative Artificial Intelligence Solutions</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Essentials of Prompt Engineering.pdf'">Essentials of Prompt Engineering</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Exploring Artificial Intelligence Use Cases and Applications.pdf'">Exploring Artificial Intelligence Use Cases and Applications</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Foundations_of_prompt_engineering.pdf'">Foundations of Prompt Engineering</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Introduction to Amazon ec2 auto scale .pdf'">Introduction to Amazon EC2 Auto Scaling</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Optimizing Foundation Models.pdf'">Optimizing Foundation Models</div>
-                <div class="certificate-item", onclick="window.location.href='certs/planning a ML project.pdf'">Planning a Machine Learning Project</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Responsible Artificial Intelligence Practices.pdf'">Responsible Artificial Intelligence Practices</div>
-                <div class="certificate-item", onclick="window.location.href='certs/Security_compliance_governance_ai.pdf'">Security, Compliance, and Governance for AI Solutions</div>
-            </div>
-        </section>
-        
-        <section class="section seminars">
-            <h2 class="section-title">Seminars & Training</h2>
-            
-            <div class="seminar-item", onclick="window.location.href='certs/ai_philippine_edition.png'">
-                <div class="seminar-title">AWS Cloud Day Philippines, AI Edition</div>
-                <div class="date">August 19, 2025</div>
-                <p>Attended AWS Cloud Day Philippines, an event focused on generative AI and data-driven solutions here in the philippines. Topics Covered: Introduction to Generative AI, Building AI Applications, and Leveraging AWS Tools for AI Development. How GCASH, PAYMAYA and other companies are leveraging these technologies.</p>
-            </div>
-
-            <div class="seminar-item", onclick="window.location.href='certs/Certificate_of_attendance_AWS Innovate.png'">
-                <div class="seminar-title">AWS Innovate (Generative AI + DATA)</div>
-                <div class="date">March 06, 2025</div>
-                <p>Attended AWS Innovate, a virtual event focused on generative AI and data-driven solutions. Covered key topics such as building and scaling AI applications, integrating generative AI into workplaces, training large language models (LLMs), and optimizing data strategies. Explored AWS tools like Amazon Bedrock, SageMaker, and Amazon Q for AI development and deployment.</p>
-            </div>
-
-            <div class="seminar-item">
-                <div class="seminar-title">AWS Summit Singapore</div>
-                <div class="date">May 2024</div>
-                <ul>
-                    <li>AWS declared an additional $12 billion investment in Singapore by 2028</li>
-                    <li>Introduction of AWS AI Spring program to train 5,000 individuals annually in AI skills</li>
-                    <li>Discussions on leadership in the era of AI and strategies for leveraging generative AI</li>
-                </ul>
-            </div>
-
-            <div class="seminar-item">
-                <div class="seminar-title">Additional Training</div>
-                <ul>
-                    <li>Joomla Web Program - Alexander Abe Instructor</li>
-                    <li>Angular, React & Node Guide - Filip Jerga Instructor</li>
-                    <li>Data Center Application Development Basics - ACLC Antipolo City</li>
-                    <li>Speak English Like A PRO - ACLC Antipolo City</li>
-                </ul>
-            </div>
-        </section>
-
-        
-
-        <!-- <section class="section">
-            <h2 class="section-title">School Awards</h2>
-            <div class="awards">
-                <div class="award-badge"><i class="fas fa-trophy"></i> Top 5 Programmer and Dean Lister</div>
-                <div class="award-badge"><i class="fas fa-trophy"></i> Top 2 System Analysis and Design</div>
-                <div class="award-badge"><i class="fas fa-trophy"></i> Top 4 Work Ethics and Standard</div>
-            </div>
-        </section> -->
-    </div>
+/* xp */
+var lvl=1;function onScroll(){var p=Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight));$('xp').style.transform='scaleX('+p+')';var l=1+Math.floor(p*4.99);if(l!==lvl){if(l>lvl)beep(660,.3,'triangle',.04);lvl=l;$('lv').textContent=SEC[l-1]}}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
 </body>
 </html>
