@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOP.ph</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      /* CSS gradient background: deep charcoal to dark navy */
+      background: linear-gradient(180deg, #14161c 0%, #0d0f18 100%);
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    #canvas-container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    /* HTML overlay for product text */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none; /* let mouse events pass through to 3D canvas */
+      z-index: 10;
+      transition: opacity 0.4s ease;
+    }
+
+    #overlay.hidden {
+      opacity: 0;
+    }
+
+    .brand {
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 800;
+      color: #ff8b00;
+      padding: 32px 40px 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .headline {
+      font-size: clamp(18px, 3vw, 36px);
+      font-weight: 300;
+      color: #ffffff;
+      padding: 0 40px 24px;
+      letter-spacing: 0.01em;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-BN-7GGEO.js"></script>
+</head>
+<body>
+  <!-- HTML overlay with product text -->
+  <div id="overlay">
+    <div class="brand">TOP.ph</div>
+    <div class="headline">Go Cashless, Live Priceless</div>
+  </div>
+
+  <!-- Three.js canvas container -->
+  <div id="canvas-container"></div>
+
+  <!-- Import Three.js main module -->
+</body>
+</html>
